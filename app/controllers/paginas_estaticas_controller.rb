@@ -2,7 +2,7 @@ class PaginasEstaticasController < ApplicationController
   def home
   end
 
-  def quemSomos
+  def quemsomos
   end
 
   def regimentos
@@ -11,22 +11,22 @@ class PaginasEstaticasController < ApplicationController
   def legislacao
   end
 
-  def estruturaCurricular
+  def estruturacurricular
   end
 
-  def manualDoAluno
+  def manualdoaluno
   end
 
-  def calendarioEMatricula
+  def calendarioematricula
   end
 
   def editais
   end
 
-  def quadroDeHorarios
+  def quadrodehorarios
   end
 
-  def manualDoAluno
+  def manualdoaluno
   end
 
   def formularios

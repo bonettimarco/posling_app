@@ -1,25 +1,16 @@
 Rails.application.routes.draw do
-  get 'paginas_estaticas/home'
+  
+get 'home' => 'paginas_estaticas#home'
+get 'calendarioematricula' => 'paginas_estaticas#calendarioematricula'
+get 'editais' => 'paginas_estaticas#editais'
+get 'estruturacurricular' => 'paginas_estaticas#estruturacurricular'
+get 'formularios' => 'paginas_estaticas#formularios'
+get 'legislacao' => 'paginas_estaticas#legislacao'
+get 'manualdoaluno' => 'paginas_estaticas#manualdoaluno'
+get 'quadrodehorarios' => 'paginas_estaticas#quadrodehorarios'
+get 'quemsomos' => 'paginas_estaticas#quemsomos'
+get 'regimentos' => 'paginas_estaticas#regimentos'
 
-  get 'paginas_estaticas/quemSomos'
-
-  get 'paginas_estaticas/regimentos'
-
-  get 'paginas_estaticas/legislacao'
-
-  get 'paginas_estaticas/estruturaCurricular'
-
-  get 'paginas_estaticas/manualDoAluno'
-
-  get 'paginas_estaticas/calendarioEMatricula'
-
-  get 'paginas_estaticas/editais'
-
-  get 'paginas_estaticas/quadroDeHorarios'
-
-  get 'paginas_estaticas/manualDoAluno'
-
-  get 'paginas_estaticas/formularios'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
