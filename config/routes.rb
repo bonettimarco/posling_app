@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  
+
+
+root 'paginas_estaticas#home'
+
 get 'home' => 'paginas_estaticas#home'
 get 'calendarioematricula' => 'paginas_estaticas#calendarioematricula'
 get 'editais' => 'paginas_estaticas#editais'
@@ -10,7 +13,11 @@ get 'manualdoaluno' => 'paginas_estaticas#manualdoaluno'
 get 'quadrodehorarios' => 'paginas_estaticas#quadrodehorarios'
 get 'quemsomos' => 'paginas_estaticas#quemsomos'
 get 'regimentos' => 'paginas_estaticas#regimentos'
-
+get    '/login',   to: 'sessions#new'
+post   '/login',   to: 'sessions#create'
+get 'logout'  => 'sessions#destroy'
+get 'esqueci' => 'users#esqueci'
+resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,21 +1,11 @@
-<h1>PaginasEstaticas#home</h1>
-<p>Find me in app/views/paginas_estaticas/home.html.erb</p>
-<a href = 'home'>Home</a><br>
-<a href = 'calendarioematricula'>Calendário e Matrícula</a><br>
-<a href = 'editais'>Editais</a><br>
-<a href = 'estruturacurricular'>Estrutura Curricular</a><br>
-<a href = 'formularios'>Formulários</a><br>
-<a href = 'legislacao'>Legislação</a><br>
-<a href = 'manualdoaluno'>Manual do aluno<br></a>
-<a href = 'quadrodehorarios'>Quadro de horários<br></a>
-<a href = 'regimentos'>Regimentos<br></a>
-<a href = 'quemsomos'>Quem somos<br></a>
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
+    <%= link_to "sample app", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Help", help_path %></li>
         <% if logged_in? %>
-		              <li><%= link_to "Trocar a senha", edit_user_path(current_user) %></li>
           <li><%= link_to "Users", '#' %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -32,10 +22,8 @@
           </li>
         <% else %>
           <li><%= link_to "Log in", login_path %></li>
-		  <li><%= link_to "Esqueci a senha", esqueci_path %></li>
         <% end %>
       </ul>
     </nav>
   </div>
 </header>
- 
