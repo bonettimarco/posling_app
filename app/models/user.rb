@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
     update_attribute(:reset_sent_at, Time.zone.now)
   end
 
-<<<<<<< HEAD
   # Sends password reset email.
   def send_password_reset_email
     UserMailer.password_reset(self).deliver_now
@@ -41,8 +40,7 @@ class User < ActiveRecord::Base
       self.email = email.downcase
     end
   
-=======
     has_secure_password
     validates :password, presence: true, length: { minimum: 6 }
->>>>>>> 74e8d1143d6b7ba6ef0201e932462567fd2bb3f9
+
 end
