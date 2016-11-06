@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+
+
 root 'paginas_estaticas#home'
 
 get 'home' => 'paginas_estaticas#home'
@@ -18,6 +20,7 @@ post   '/login',   to: 'sessions#create'
 get 'logout'  => 'sessions#destroy'
 get 'esqueci' => 'users#esqueci'
 resources :users
+resources :password_resets, only: [:new, :create, :edit, :update]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
