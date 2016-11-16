@@ -2,13 +2,18 @@
 <p>Find me in app/views/paginas_estaticas/home.html.erb</p>
 <a href = 'home'>Home</a><br>
 <a href = 'calendarioematricula'>Calendário e Matrícula</a><br>
+<a href = 'colaboradores'>Colaboradores</a><br>
 <a href = 'editais'>Editais</a><br>
 <a href = 'estruturacurricular'>Estrutura Curricular</a><br>
+<a href = 'financas'>Finanças</a><br>
 <a href = 'formularios'>Formulários</a><br>
+<a href = 'grupos'>Grupos de Pesquisa<br></a>
 <a href = 'legislacao'>Legislação</a><br>
+<a href = 'linhas'>Linhas de Pesquisa<br></a>
 <a href = 'manualdoaluno'>Manual do aluno<br></a>
 <a href = 'quadrodehorarios'>Quadro de horários<br></a>
 <a href = 'regimentos'>Regimentos<br></a>
+<a href = 'finais'>Trabalhos Finais<br></a>
 <a href = 'quemsomos'>Quem somos<br></a>
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
@@ -18,12 +23,16 @@
 		              <li><%= link_to "Trocar a senha", edit_user_path(current_user) %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
+              Ferramentas de edição <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
 
-              <li><%= link_to "Profile", current_user %></li>
-
+              <li><%= link_to "id e mail do Administrador", current_user %></li>
+			  <li><%= link_to "Colaboradores", colaboradores_path %></li>
+			  <li><%= link_to "Finanças", financas_path %></li>
+			  <li><%= link_to "Grupos de Pesquisa", grupos_path %></li>
+			  <li><%= link_to "Linhas de Pesquisa", linhas_path %></li>
+			  <li><%= link_to "Trabalhos Finais", finais_path %></li>
               <li class="divider"></li>
               <li>
                 <%= link_to "Log out", logout_path %>

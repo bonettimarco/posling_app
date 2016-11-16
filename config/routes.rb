@@ -3,6 +3,14 @@ Rails.application.routes.draw do
 
 
 
+  resources :colaboradores
+  resources :grupos
+  resources :disciplinas3s
+  resources :disciplinas2s
+  resources :disciplinas
+  resources :linhas
+  resources :finais
+  resources :financas
 root 'paginas_estaticas#home'
 
 get 'home' => 'paginas_estaticas#home'

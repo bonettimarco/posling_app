@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cabecalho: MyString
+  texto: MyString
+
+two:
+  cabecalho: MyString
+  texto: MyString
