@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :egressos
   resources :colaboradores
   resources :grupos
   resources :disciplinas3s
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   resources :linhas
   resources :finais
   resources :financas
+  resources :dados
 root 'paginas_estaticas#home'
 
 get 'home' => 'paginas_estaticas#home'
@@ -27,6 +29,19 @@ get    '/login',   to: 'sessions#new'
 post   '/login',   to: 'sessions#create'
 get 'logout'  => 'sessions#destroy'
 get 'esqueci' => 'users#esqueci'
+get 'egress' => 'paginas_estaticas#egress'
+get 'dout2017' => 'egressos#dout2017'
+get 'dout2016' => 'egressos#dout2016'
+get 'dout2015' => 'egressos#dout2015'
+get 'dout2014' => 'egressos#dout2014'
+get 'dout2013' => 'egressos#dout2013'
+get 'mest2017' => 'egressos#mest2017'
+get 'mest2016' => 'egressos#mest2016'
+get 'mest2015' => 'egressos#mest2015'
+get 'mest2014' => 'egressos#mest2014'
+get 'mest2013' => 'egressos#mest2013'
+get 'mest2012' => 'egressos#mest2012'
+get 'mest2011' => 'egressos#mest2011'
 resources :users
 resources :password_resets, only: [:new, :create, :edit, :update]
 

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ano: 1
+  nivel: MyText
+  nome: MyText
+  lattes: MyText
+  orientador: MyText
+  defesa: 2016-11-17
+
+two:
+  ano: 1
+  nivel: MyText
+  nome: MyText
+  lattes: MyText
+  orientador: MyText
+  defesa: 2016-11-17

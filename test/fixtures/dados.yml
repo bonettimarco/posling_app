@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ano: MyText
+  nivel: MyText
+
+two:
+  ano: MyText
+  nivel: MyText

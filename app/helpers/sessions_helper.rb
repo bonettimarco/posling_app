@@ -1,5 +1,84 @@
 module SessionsHelper
+  
+	def salve()
+		if @aux.save
+			redirect_to egressos_url
+		end
+	end
+	
+	def dout2017
+		@aux=Dado.find(1)
+		@aux.ano = '2017'
+		@aux.nivel = 'Doutorado'
+		salve()
+	end
 
+	def dout2016
+			@aux=Dado.find(1)
+		@aux.ano = '2016'
+		@aux.nivel = 'Doutorado'
+		salve()
+	end
+	
+	def dout2015
+		@aux=Dado.find(1)
+		@aux.ano = '2015'
+		@aux.nivel = 'Doutorado'
+		salve()
+	end
+	
+	def dout2014
+		@aux=Dado.find(1)
+		@aux.ano = '2014'
+		@aux.nivel = 'Doutorado'
+		salve()
+	end
+	
+	def dout2013
+		@aux=Dado.find(1)
+		@aux.ano = '2013'
+		@aux.nivel = 'Doutorado'
+		salve()
+	end
+	
+	def mest2017
+		@aux=Dado.find(1)
+		@aux.ano = '2017'
+		@aux.nivel = 'Mestrado'
+		salve()
+	end
+	
+	def mest2016
+		@aux=Dado.find(1)
+		@aux.ano = '2016'
+		@aux.nivel = 'Mestrado'
+		salve()
+	end
+	
+	def mest2015
+		@aux=Dado.find(1)
+		@aux.ano = '2015'
+		@aux.nivel = 'Mestrado'
+		salve()
+
+	end
+	
+	def mest2014
+		@aux=Dado.find(1)
+		@aux.ano = '2014'
+		@aux.nivel = 'Mestrado'
+		salve()
+
+	end
+	
+	def mest2013
+		@aux=Dado.find(1)
+		@aux.ano = '2013'
+		@aux.nivel = 'Mestrado'
+		salve()
+
+	end
+	
   def log_in(user)
     session[:user_id] = user.id
   end

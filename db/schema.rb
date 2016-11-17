@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116175340) do
+ActiveRecord::Schema.define(version: 20161117214650) do
 
   create_table "colaboradores", force: :cascade do |t|
     t.string   "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dados", force: :cascade do |t|
+    t.text     "ano"
+    t.text     "nivel"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,6 +40,17 @@ ActiveRecord::Schema.define(version: 20161116175340) do
 
   create_table "disciplinas3s", force: :cascade do |t|
     t.string   "texto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "egressos", force: :cascade do |t|
+    t.integer  "ano"
+    t.text     "nivel"
+    t.text     "nome"
+    t.text     "lattes"
+    t.text     "orientador"
+    t.date     "defesa"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

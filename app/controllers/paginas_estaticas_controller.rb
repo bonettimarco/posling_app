@@ -2,6 +2,9 @@ class PaginasEstaticasController < ApplicationController
   def home
   end
 
+  def egress
+  end
+  
   def quemsomos
   end
 
