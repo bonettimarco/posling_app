@@ -56,7 +56,7 @@ class ColaboradoresController < ApplicationController
   def destroy
     @colaboradore.destroy
     respond_to do |format|
-      format.html { redirect_to colaboradores_url, notice: 'Colaboradore was successfully destroyed.' }
+      format.html { redirect_to colaboradores_url, notice: 'Colaborador foi retirado.' }
       format.json { head :no_content }
     end
   end

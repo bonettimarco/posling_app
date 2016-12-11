@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to root_url
     else
-      redirect_to root_url
-      # render 'new'
+      @tentou = true
+     render 'new'
     end
   end
   
@@ -18,4 +18,5 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
   
-  end
+  
+end
