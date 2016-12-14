@@ -1,0 +1,1 @@
+json.array! @finais, partial: 'finais/finai', as: :finai

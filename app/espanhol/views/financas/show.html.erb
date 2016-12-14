@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cabecalho:</strong>
+  <%= @financa.cabecalho %>
+</p>
+
+<p>
+  <strong>Texto:</strong>
+  <%= @financa.texto %>
+</p>
+
+<%= link_to 'Edit', edit_financa_path(@financa) %> |
+<%= link_to 'Back', financas_path %>
