@@ -160,7 +160,7 @@ padding-bottom: 35px;
 
 .finalHome{
   background-color: white;
-  padding-bottom:  50px;
+  padding-bottom:  30px;
   padding-top:30px;
 }
 .row{
@@ -185,22 +185,22 @@ padding-bottom: 35px;
 
 .logouff{
   width:70px;
-  margin-top:150px;  
+  margin-top:20px;  
 }
 .logoFb{
   width: 70px;
-  margin-top: 150px;
+  margin-top: 20px;
 }
 @media(max-width:991px){
 .logouff{
   width:70px;
-  margin-top:50px;
+  margin-top:10px;
   margin-left:20px;
 
 }
 .logoFb{
   width: 70px;
-  margin-top: 50px;
+  margin-top: 10px;
 
 }
 
