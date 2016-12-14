@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ano:</strong>
+  <%= @egresso.ano %>
+</p>
+
+<p>
+  <strong>Nivel:</strong>
+  <%= @egresso.nivel %>
+</p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @egresso.nome %>
+</p>
+
+<p>
+  <strong>Lattes:</strong>
+  <%= @egresso.lattes %>
+</p>
+
+<p>
+  <strong>Orientador:</strong>
+  <%= @egresso.orientador %>
+</p>
+
+<p>
+  <strong>Defesa:</strong>
+  <%= @egresso.defesa %>
+</p>
+
+<%= link_to 'Edit', edit_egresso_path(@egresso) %> |
+<%= link_to 'Back', egressos_path %>

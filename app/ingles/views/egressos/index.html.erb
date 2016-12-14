@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista dos Egressos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ano</th>
+      <th>Nivel</th>
+      <th>Nome</th>
+      <th>Lattes</th>
+      <th>Orientador</th>
+      <th>Defesa</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @egressos.each do |egresso| %>
+      <tr>
+        <td><%= egresso.ano %></td>
+        <td><%= egresso.nivel %></td>
+        <td><%= egresso.nome %></td>
+        <td><%= egresso.lattes %></td>
+        <td><%= egresso.orientador %></td>
+        <td><%= egresso.defesa %></td>
+		<% if logged_in? %>
+        <td><%= link_to 'Show', egresso %></td>
+        <td><%= link_to 'Edit', edit_egresso_path(egresso) %></td>
+        <td><%= link_to 'Destroy', egresso, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if logged_in? %>
+<%= link_to 'New Egresso', new_egresso_path %>
+<% end %>

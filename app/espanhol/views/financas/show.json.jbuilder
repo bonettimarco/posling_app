@@ -1,0 +1,1 @@
+json.partial! "financas/financa", financa: @financa

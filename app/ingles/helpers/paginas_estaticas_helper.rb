@@ -1,0 +1,3 @@
+module PaginasEstaticasHelper
+
+end
