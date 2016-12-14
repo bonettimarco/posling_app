@@ -6,6 +6,19 @@ module SessionsHelper
 		end
 	end
 	
+	def ingles()
+		@idioma=ingles
+	end
+	
+	def espanhol()
+		@idioma=espanhol
+	end
+	
+	def portugues()
+		@idioma=portugues
+	end
+	
+	
 	def dout2017
 		@aux=Dado.find(1)
 		@aux.ano = '2017'
