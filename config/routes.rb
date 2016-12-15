@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
 
   resources :docentes
+  resources :docentes
   resources :eventos
   resources :processo_seletivos
   resources :publicas
