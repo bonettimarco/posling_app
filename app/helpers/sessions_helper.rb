@@ -22,6 +22,19 @@ module SessionsHelper
 		
 	end
 	
+	def dout2030
+		@aux=Dado.find(1)
+		@aux.ano = '2030'
+		@aux.nivel = 'Doutorado'
+		salve()
+	end
+	
+	def dout2029
+		@aux=Dado.find(1)
+		@aux.ano = '2029'
+		@aux.nivel = 'Doutorado'
+		salve()
+	end
 	
 	def dout2017
 		@aux=Dado.find(1)
@@ -96,6 +109,15 @@ module SessionsHelper
 
 	end
 	
+	def mest2012
+		@aux=Dado.find(1)
+		@aux.ano = '2012'
+		@aux.nivel = 'Mestrado'
+		salve()
+
+	end
+
+
   def log_in(user)
     session[:user_id] = user.id
   end
