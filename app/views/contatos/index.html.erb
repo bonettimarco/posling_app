@@ -14,14 +14,17 @@
     <% @contatos.each do |contato| %>
       <tr>
         <td><%= contato.texto %></td>
-        <td><%= link_to 'Show', contato %></td>
-        <td><%= link_to 'Edit', edit_contato_path(contato) %></td>
-        <td><%= link_to 'Destroy', contato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    		<% if logged_in? %>
+          <td><%= link_to 'Show', contato %></td>
+          <td><%= link_to 'Edit', edit_contato_path(contato) %></td>
+          <td><%= link_to 'Destroy', contato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Contato', new_contato_path %>
+		<% if logged_in? %>
+      <%= link_to 'New Contato', new_contato_path %>
+    <% end %>
