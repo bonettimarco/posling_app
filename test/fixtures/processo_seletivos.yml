@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cabecalho: MyText
+  mestrado: MyText
+  texto1: MyText
+  doutorado: MyText
+  texto2: MyText
+
+two:
+  cabecalho: MyText
+  mestrado: MyText
+  texto1: MyText
+  doutorado: MyText
+  texto2: MyText

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Publicas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Texto</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @publicas.each do |publica| %>
+      <tr>
+        <td><%= publica.titulo %></td>
+        <td><%= publica.texto %></td>
+        <td><%= link_to 'Show', publica %></td>
+        <td><%= link_to 'Edit', edit_publica_path(publica) %></td>
+        <td><%= link_to 'Destroy', publica, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Publica', new_publica_path %>

@@ -3,6 +3,11 @@ Rails.application.routes.draw do
 
 
 
+  resources :eventos
+  resources :processo_seletivos
+  resources :publicas
+  resources :links
+  resources :contatos
   resources :egressos
   resources :colaboradores
   resources :grupos

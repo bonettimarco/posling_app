@@ -1,0 +1,37 @@
+<%= form_for(@processo_seletivo) do |f| %>
+  <% if @processo_seletivo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@processo_seletivo.errors.count, "error") %> prohibited this processo_seletivo from being saved:</h2>
+
+      <ul>
+      <% @processo_seletivo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cabecalho %><br>
+    <%= f.text_area :cabecalho %>
+  </div>
+  <div class="field">
+    <%= f.label :mestrado %><br>
+    <%= f.text_area :mestrado %>
+  </div>
+  <div class="field">
+    <%= f.label :texto1 %><br>
+    <%= f.text_area :texto1 %>
+  </div>
+  <div class="field">
+    <%= f.label :doutorado %><br>
+    <%= f.text_area :doutorado %>
+  </div>
+  <div class="field">
+    <%= f.label :texto2 %><br>
+    <%= f.text_area :texto2 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

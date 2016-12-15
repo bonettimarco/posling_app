@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161214170757) do
+ActiveRecord::Schema.define(version: 20161215124031) do
 
   create_table "colaboradores", force: :cascade do |t|
     t.string   "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contatos", force: :cascade do |t|
+    t.string   "texto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,6 +61,14 @@ ActiveRecord::Schema.define(version: 20161214170757) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "eventos", force: :cascade do |t|
+    t.text     "titulo"
+    t.text     "link"
+    t.text     "texto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "finais", force: :cascade do |t|
     t.string   "texto"
     t.datetime "created_at", null: false
@@ -82,6 +96,30 @@ ActiveRecord::Schema.define(version: 20161214170757) do
 
   create_table "linhas", force: :cascade do |t|
     t.string   "texto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "links", force: :cascade do |t|
+    t.text     "link"
+    t.text     "texto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "processo_seletivos", force: :cascade do |t|
+    t.text     "cabecalho"
+    t.text     "mestrado"
+    t.text     "texto1"
+    t.text     "doutorado"
+    t.text     "texto2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "publicas", force: :cascade do |t|
+    t.text     "titulo"
+    t.text     "texto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
