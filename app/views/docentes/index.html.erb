@@ -18,9 +18,11 @@
         <td><%= docente.nome %></td>
         <td><%= docente.linha %></td>
         <td><%= docente.link %></td>
-        <td><%= link_to 'Show', docente %></td>
-        <td><%= link_to 'Edit', edit_docente_path(docente) %></td>
-        <td><%= link_to 'Destroy', docente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if logged_in? %>
+          <td><%= link_to 'Show', docente %></td>
+          <td><%= link_to 'Edit', edit_docente_path(docente) %></td>
+          <td><%= link_to 'Destroy', docente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +30,6 @@
 
 <br>
 
-<%= link_to 'New Docente', new_docente_path %>
+		<% if logged_in? %>
+		  <%= link_to 'New Docente', new_docente_path %>
+    <% end %>
