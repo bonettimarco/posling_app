@@ -7,15 +7,19 @@ module SessionsHelper
 	end
 	
 	def ingles()
-		@idioma=ingles
+		@idioma=1
+		redirect_to home_url
 	end
 	
 	def espanhol()
-		@idioma=espanhol
+		@idioma=1
+		redirect_to espanhol_url
 	end
 	
 	def portugues()
-		@idioma=portugues
+		@idioma=1
+		redirect_to home_url
+		
 	end
 	
 	

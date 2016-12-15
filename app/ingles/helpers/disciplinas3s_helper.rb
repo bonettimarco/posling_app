@@ -1,2 +1,0 @@
-module Disciplinas3sHelper
-end

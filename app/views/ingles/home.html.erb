@@ -1,0 +1,99 @@
+<div class="container-fluid img-home">
+  <div class="transparente">
+      <div class="painelLogo">
+        <%=image_tag("logo_posling.png", alt: "LogoPosling", class:"logoHome")%>
+      </div>
+  </div>
+</div>
+<div class="container-fluid apresentacao">
+  <h3>
+    "Ingles Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore"
+  </h3>
+</div>
+
+<div class="container bem-vindo">
+  <div class="separador">
+  </div>
+  <%= image_tag("bemvindo.png", alt:"LogoPoslingBalao", class:"logoBalao")%>
+</div>
+  
+<div class="row finalHome">
+  <div class="col-md-3 col-md-offset-1 txtHome">
+    <h3>Lorem ipsum </h3>
+    <p>
+      dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
+      commodo consequat. Duis aute irure dolor in reprehenderit 
+      in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa 
+      qui officia deserunt mollit anim id est laborum."
+    </p>
+  </div>
+  <div class="col-md-2 col-md-offset-6">
+     <%= image_tag("uff.png", alt:"LogoUFF", class:"logouff")%>
+     <%= image_tag("facebook_logo.png", alt:"LogoFacebook", class:"logoFb")%>
+  </div>
+</div>
+
+
+
+<h1>PaginasEmIngles</h1>
+<a href = 'homeing'>HomeIngles</a><br>
+<a href = 'calendarioematriculaing'>Calendário e Matrícula</a><br>
+<a href = 'egressing'>Egressos</a><br>
+<a href = 'manualdoalunoing'>Manual do aluno<br></a>
+<a href = 'finais'>Trabalhos Finais<br></a>
+<a href = 'quemsomosing'>Quem somos<br></a>
+<a href = 'grupos'>Grupos de Pesquisa<br></a>
+<a href = 'linhas'>Linhas de Pesquisa<br></a>
+<a href = 'regimentosing'>Regimentos<br></a>
+<a href = 'editaising'>Editais</a><br>
+<a href = 'estruturacurricularing'>Estrutura Curricular</a><br>
+<a href = 'legislacaoing'>Legislação</a><br>
+<a href = 'colaboradores'>Colaboradores</a><br>
+<a href = 'financas'>Finanças</a><br>
+<a href = 'formulariosing'>Formulários</a><br>
+<a href = 'quadrodehorariosing'>Quadro de horários<br></a>
+
+
+
+
+
+
+
+
+<header class="navbar navbar-fixed-bottom navbar-inverse">
+  <div class="container">
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
+		              <li><%= link_to "Trocar a senha", edit_user_path(current_user) %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Ferramentas de edição <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+
+              <li><%= link_to "id e mail do Administrador", current_user %></li>
+			  <li><%= link_to "Colaboradores", colaboradores_path %></li>
+			  <li><%= link_to "Egressos", egress_path %></li>
+			  <li><%= link_to "Finanças", financas_path %></li>
+			  <li><%= link_to "Grupos de Pesquisa", grupos_path %></li>
+			  <li><%= link_to "Linhas de Pesquisa", linhas_path %></li>
+			  <li><%= link_to "Trabalhos Finais", finais_path %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Log out", logout_path %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Log in", login_path %></li>
+		  <li><%= link_to "Esqueci a senha", new_password_reset_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
+-->
