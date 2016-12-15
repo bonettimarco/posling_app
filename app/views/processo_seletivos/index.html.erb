@@ -18,10 +18,10 @@
     <% @processo_seletivos.each do |processo_seletivo| %>
       <tr>
         <td><%= processo_seletivo.cabecalho %></td>
-        <td><%= processo_seletivo.mestrado %></td>
-        <td><%= processo_seletivo.texto1 %></td>
-        <td><%= processo_seletivo.doutorado %></td>
-        <td><%= processo_seletivo.texto2 %></td>
+        <td></td>
+        <td><a href=<%= processo_seletivo.texto1 %>><%= processo_seletivo.mestrado %></td>
+        <td></td>
+        <td><a href=<%= processo_seletivo.texto2 %>><%= processo_seletivo.doutorado %></td>
     		<% if logged_in? %>
           <td><%= link_to 'Show', processo_seletivo %></td>
           <td><%= link_to 'Edit', edit_processo_seletivo_path(processo_seletivo) %></td>

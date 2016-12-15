@@ -14,8 +14,8 @@
   <tbody>
     <% @publicas.each do |publica| %>
       <tr>
-        <td><%= publica.titulo %></td>
-        <td><%= publica.texto %></td>
+        <td></td>
+        <td><a href=<%= publica.texto %>><%= publica.titulo %></td>
     		<% if logged_in? %>
           <td><%= link_to 'Show', publica %></td>
           <td><%= link_to 'Edit', edit_publica_path(publica) %></td>

@@ -20,8 +20,8 @@
       <tr>
         <td><%= egresso.ano %></td>
         <td><%= egresso.nivel %></td>
-        <td><%= egresso.nome %></td>
-        <td><%= egresso.lattes %></td>
+        <td></td>
+        <td><a href=<%=egresso.lattes%>><%= egresso.nome %></a>
         <td><%= egresso.orientador %></td>
         <td><%= egresso.defesa %></td>
 		<% if logged_in? %>

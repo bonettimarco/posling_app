@@ -15,8 +15,8 @@
   <tbody>
     <% @eventos.each do |evento| %>
       <tr>
-        <td><%= evento.titulo %></td>
-        <td><%= evento.link %></td>
+        <td></td>
+        <td><a href=<%= evento.link %>><%= evento.titulo %></td>
         <td><%= evento.texto %></td>
     		<% if logged_in? %>
           <td><%= link_to 'Show', evento %></td>
