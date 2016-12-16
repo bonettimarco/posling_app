@@ -11,10 +11,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
-  def esqueci
-    @user = User.find(1)
-  end
-  
+
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
