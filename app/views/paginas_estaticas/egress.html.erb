@@ -50,3 +50,7 @@
         </div>
     </div>
 </div>
+
+<% if logged_in? %>
+<%= link_to 'New Egresso', new_egresso_path %>
+<% end %>
