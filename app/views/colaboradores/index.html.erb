@@ -1,7 +1,14 @@
-<p id="notice"><%= notice %></p>
+<% @idioma=Dado.find(1) %>
+		<p id="notice"><%= notice %></p>
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
-<h1>Colaboradores</h1>
+<% if @idioma.ano=='1' %>
+        <h1>Ingles Colaborators</h1>
+<% else %>
+        <h1>Colaboradores</h1>
+<% end %>
+<% @idioma.ano = '2000' %>
+<% @idioma.save %>
     </div>
     <div class="container-fluid">
         <div class="col-md-10 ">

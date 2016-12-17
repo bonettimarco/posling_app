@@ -7,20 +7,74 @@ module SessionsHelper
 	end
 	
 	
-	def ingles()
-		@idioma=1
-		redirect_to home_url
+	def ingles_colaboradores()
+		@idioma=Dado.find(1)
+		@idioma.ano = '1'
+		@idioma.save
+		redirect_to colaboradores_url
 	end
 	
-	def espanhol()
-		@idioma=1
-		redirect_to espanhol_url
+	def ingles_finais()
+		@idioma=Dado.find(1)
+		@idioma.ano = '1'
+		@idioma.save
+		redirect_to finais_url
 	end
 	
-	def portugues()
-		@idioma=1
-		redirect_to home_url
-		
+	def ingles_grupos()
+		@idioma=Dado.find(1)
+		@idioma.ano = '1'
+		@idioma.save
+		redirect_to grupos_url
+	end
+	
+	def ingles_linhas()
+		@idioma=Dado.find(1)
+		@idioma.ano = '1'
+		@idioma.save
+		redirect_to linhas_url
+	end
+	
+	def ingles_financas()
+		@idioma=Dado.find(1)
+		@idioma.ano = '1'
+		@idioma.save
+		redirect_to financas_url
+	end
+	
+	def espanhol_colaboradores()
+		@idioma=Dado.find(1)
+		@idioma.ano = '2'
+		@idioma.save
+		redirect_to colaboradores_url
+	end
+	
+	def espanhol_finais()
+		@idioma=Dado.find(1)
+		@idioma.ano = '2'
+		@idioma.save
+		redirect_to finais_url
+	end
+	
+	def espanhol_grupos()
+		@idioma=Dado.find(1)
+		@idioma.ano = '2'
+		@idioma.save
+		redirect_to grupos_url
+	end
+	
+	def espanhol_linhas()
+		@idioma=Dado.find(1)
+		@idioma.ano = '2'
+		@idioma.save
+		redirect_to linhas_url
+	end
+	
+	def espanhol_financas()
+		@idioma=Dado.find(1)
+		@idioma.ano = '2'
+		@idioma.save
+		redirect_to financas_url
 	end
 	
   def log_in(user)

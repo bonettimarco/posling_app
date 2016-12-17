@@ -1,7 +1,16 @@
+<% @aux=Dado.find(1) %>
+<% @idioma=@aux.ano %>
 <p id="notice"><%= notice %></p>
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
-      <h1>Linhas de pesquisa</h1>
+      <% if @idioma=='1' %>
+        <h1>Ingles - Linhas de pesquisa</h1>
+        <% else if @idioma=='2' %>
+          <h1>Espanhol - Linhas de pesquisa</h1>
+          <% else %>
+              <h1>Linhas de pesquisa</h1>
+          <% end %>
+        <% end %>
       
       <table class="table table-responsive table-bordered table-hover">
         <thead>
@@ -17,13 +26,25 @@
             <tr>
               <td><%= linha.texto %></td>
       		<% if(@conta==1) %>
-              <td><%= link_to 'Disciplinas', disciplinas_path %></td>
-      		<% end %>
+              <% if @idioma=='1' %>
+                <td><%= link_to 'Inglês Disciplinas', disciplinas_path %></td>
+              <% else %>
+                <td><%= link_to 'Disciplinas', disciplinas_path %></td>
+          		<% end %>
+          <% end %>
       		<% if @conta==2 %>
-              <td><%= link_to 'Disciplinas', disciplinas2s_path %></td>
+              <% if @idioma=='1' %>
+                <td><%= link_to 'Inglês - Disciplinas', disciplinas2s_path %></td>
+              <% else %>
+                <td><%= link_to 'Disciplinas', disciplinas2s_path %></td>
+              <% end %>
       		<% end %>
       		<% if @conta==3 %>
+              <% if @idioma=='1' %>
+                <td><%= link_to 'Inglês - Disciplinas', disciplinas3s_path %></td>
+              <% else %>
               <td><%= link_to 'Disciplinas', disciplinas3s_path %></td>
+            <% end %>
       		<% end %>
       		<% @conta = @conta+1 %>
       		<% if logged_in? %>
@@ -42,3 +63,5 @@
       <% end %>
     </div>
 </div>  
+<% @aux.ano = '2000' %>
+<% @aux.save %>
