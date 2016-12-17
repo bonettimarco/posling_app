@@ -41,7 +41,77 @@ module SessionsHelper
 		@idioma.save
 		redirect_to financas_url
 	end
+		def ingles_links()
+		@idioma=Dado.find(1)
+		@idioma.ano = '1'
+		@idioma.save
+		redirect_to links_url
+	end
+	def ingles_publicas()
+		@idioma=Dado.find(1)
+		@idioma.ano = '1'
+		@idioma.save
+		redirect_to publicas_url
+	end
 	
+		def ingles_eventos()
+		@idioma=Dado.find(1)
+		@idioma.ano = '1'
+		@idioma.save
+		redirect_to eventos_url
+	end
+
+	
+	def ingles_seletivos()
+		@idioma=Dado.find(1)
+		@idioma.ano = '1'
+		@idioma.save
+		redirect_to processo_seletivos_url
+	end
+	
+	def ingles_docentes()
+		@idioma=Dado.find(1)
+		@idioma.ano = '1'
+		@idioma.save
+		redirect_to docentes_url
+	end
+	
+	def espanhol_docentes()
+		@idioma=Dado.find(1)
+		@idioma.ano = '2'
+		@idioma.save
+		redirect_to docentes_url
+	end
+	
+	
+	def espanhol_seletivos()
+		@idioma=Dado.find(1)
+		@idioma.ano = '2'
+		@idioma.save
+		redirect_to processo_seletivos_url
+	end
+
+	
+	def espanhol_eventos()
+		@idioma=Dado.find(1)
+		@idioma.ano = '2'
+		@idioma.save
+		redirect_to eventos_url
+	end
+	
+	def espanhol_publicas()
+		@idioma=Dado.find(1)
+		@idioma.ano = '2'
+		@idioma.save
+		redirect_to publicas_url
+	end
+	def espanhol_links()
+		@idioma=Dado.find(1)
+		@idioma.ano = '2'
+		@idioma.save
+		redirect_to links_url
+	end
+
 	def espanhol_colaboradores()
 		@idioma=Dado.find(1)
 		@idioma.ano = '2'

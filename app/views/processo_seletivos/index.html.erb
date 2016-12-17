@@ -1,7 +1,33 @@
+<% @aux=Dado.find(1) %>
+<% @idioma=@aux.ano %>
 <p id="notice"><%= notice %></p>
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
-      <h1>Processos Seletivos</h1>
+           <% if @idioma=='1' %>
+  <h1>Inglês - Processos Seletivos</h1>
+      
+      <table class="table table-responsive table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Inglês - Cabecalho</th>
+            <th>Inglês - Mestrado</th>
+            <th>Inglês - Texto1</th>
+            <th>Inglês - Doutorado</th>
+            <th>Inglês - Texto2</th>
+         <% else if @idioma=='2' %>
+          <h1>Espanhol - Processos Seletivos</h1>
+      
+      <table class="table table-responsive table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Espanhol - Cabecalho</th>
+            <th>Espanhol - Mestrado</th>
+            <th>Espanhol - Texto1</th>
+            <th>Espanhol - Doutorado</th>
+            <th>Espanhol - Texto2</th>
+
+         <% else %>
+<h1>Processos Seletivos</h1>
       
       <table class="table table-responsive table-bordered table-hover">
         <thead>
@@ -11,10 +37,14 @@
             <th>Texto1</th>
             <th>Doutorado</th>
             <th>Texto2</th>
+ 
+      <% end %>
             <th colspan="3"></th>
           </tr>
         </thead>
       
+<% end %>
+     
         <tbody>
           <% @processo_seletivos.each do |processo_seletivo| %>
             <tr>
@@ -38,4 +68,6 @@
             <%= link_to 'New Processo seletivo', new_processo_seletivo_path %>
           <% end %>
     </div>      
-</div>          
+</div> 
+<% @aux.ano = '2000' %>
+<% @aux.save %>

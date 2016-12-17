@@ -1,14 +1,39 @@
+<% @aux=Dado.find(1) %>
+<% @idioma=@aux.ano %>
 <p id="notice"><%= notice %></p>
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
-        <h1>Eventos</h1>
+     <% if @idioma=='1' %>
+          <h1>Inglês - Eventos</h1>
+         <% else if @idioma=='2' %>
+            <h1>Espanhol -Eventos</h1>
+         <% else %>
+              <h1>Eventos</h1>
+      <% end %>
+      
+<% end %>
+
         
         <table class="table table-responsive table-bordered table-hover">
           <thead>
             <tr>
+              
+     <% if @idioma=='1' %>
+              <th>Inglês - Titulo</th>
+              <th>Inglês - Link</th>
+              <th>Inglês - Texto</th>
+           <% else if @idioma=='2' %>
+              <th>Espanhol - Titulo</th>
+              <th>Espanhol - Link</th>
+              <th>Espanhol - Texto</th>
+           <% else %>
               <th>Titulo</th>
               <th>Link</th>
               <th>Texto</th>
+        <% end %>
+      
+      <% end %>
+
               <th colspan="3"></th>
             </tr>
           </thead>
@@ -36,3 +61,5 @@
             <% end %>
     </div>
   </div>  
+<% @aux.ano = '2000' %>
+<% @aux.save %>

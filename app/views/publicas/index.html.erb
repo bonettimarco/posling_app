@@ -1,7 +1,18 @@
+<% @aux=Dado.find(1) %>
+<% @idioma=@aux.ano %>
 <p id="notice"><%= notice %></p>
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
-        <h1>Publicações</h1>
+        
+     <% if @idioma=='1' %>
+            <h1>Inglês - Publicações</h1>
+         <% else if @idioma=='2' %>
+            <h1>Espanhol - Publicações</h1>
+         <% else %>
+            <h1>Publicações</h1>
+      <% end %>
+      
+<% end %>
         
         <table class="table table-responsive table-bordered table-hover">
           <thead>
@@ -32,4 +43,6 @@
               <%= link_to 'New Publica', new_publica_path %>
             <% end %>
     </div>
-</div>            
+</div>      
+<% @aux.ano = '2000' %>
+<% @aux.save %>
