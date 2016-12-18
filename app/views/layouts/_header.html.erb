@@ -74,11 +74,11 @@
 		  <% if @idioma==1 %>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inglês Acadêmicos<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Calendar",ingles_calendario_path %></li>
-            <li><%= link_to "Research Groups", gruposing_path %></li>
-            <li><%= link_to "Lines of Research", linhasing_path %></li>
-            <li><%= link_to "Final Results", finaising_path %></li>
-            <li><%= link_to "Egress", ingles_egre_path %></li>
+            <li><%= link_to "Inglês Calendário e Matricula",ingles_calendario_path %></li>
+            <li><%= link_to "Inglês Grupos de Pesquisas", gruposing_path %></li>
+            <li><%= link_to "Inglês Linhas de Pesquisas", linhasing_path %></li>
+            <li><%= link_to "Inglês Trabalhos Finais", finaising_path %></li>
+            <li><%= link_to "Inglês Egressos", ingles_egre_path %></li>
 		  <% else if @idioma==2 %>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Espanhol Acadêmicos<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -153,24 +153,14 @@
         </li>
         
         </ul>
-  <!--    <% if @idioma==1 %>
-      <ul class="nav navbar-nav navbar-right ">
-      <li><%=link_to"Portugues", home_path%></li>  
-        <li><%= link_to"Español", espanhol_home%></li>  
+        
+        <ul class="nav navbar-nav navbar-right ">
+      <li><a href="ingles_home">English</a></li>  
+        <li><a href="espanhol_home">Español</a></li>    
+
       </ul>
-      <% else if @idioma==2%>
-      <ul class="nav navbar-nav navbar-right ">
-        <li><%= link_to "English", ingles_home%>></li>  
-        <li><%= link_to "Português", home_path%></li>  
-      </ul>
-      <% else %>
-      <ul class="nav navbar-nav navbar-right ">
-        <li><a href="ingles_home">English</a></li>  
-        <li><a href="espanhol_home">Español</a></li>  
-      </ul>
-      <% end %>
-      <% end %>
-    -->
+      
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
@@ -204,6 +194,5 @@
     </nav>
   </div>
 -->
-
 <% @aux.aux=3 %>
 <% @aux.save %>
