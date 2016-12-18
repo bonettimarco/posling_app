@@ -27,23 +27,32 @@
               <td><%= linha.texto %></td>
       		<% if(@conta==1) %>
               <% if @idioma=='1' %>
-                <td><%= link_to 'Inglês Disciplinas', disciplinas_path %></td>
-              <% else %>
-                <td><%= link_to 'Disciplinas', disciplinas_path %></td>
+                <td><%= link_to 'Inglês Disciplinas', disciplinasing_url %></td>
+              <% else if @idioma=='2' %>
+                <td><%= link_to 'Espanhol Disciplinas', disciplinasesp_url %></td>
+              <% else %>                
+                <td><%= link_to 'Disciplinas', disciplinas_url %></td>
+          		<% end %>
           		<% end %>
           <% end %>
       		<% if @conta==2 %>
               <% if @idioma=='1' %>
-                <td><%= link_to 'Inglês - Disciplinas', disciplinas2s_path %></td>
+                <td><%= link_to 'Inglês - Disciplinas', disciplinas2sing_url %></td>
+              <% else if @idioma=='2' %>
+                <td><%= link_to 'Espanhol Disciplinas', disciplinas2sesp_url %></td>
               <% else %>
-                <td><%= link_to 'Disciplinas', disciplinas2s_path %></td>
-              <% end %>
+              <td><%= link_to 'Disciplinas', disciplinas2s_url %></td>
+                <% end %>
+                <%end %>
       		<% end %>
       		<% if @conta==3 %>
               <% if @idioma=='1' %>
-                <td><%= link_to 'Inglês - Disciplinas', disciplinas3s_path %></td>
+                <td><%= link_to 'Inglês - Disciplinas', disciplinas3sing_url %></td>
+                <% else if @idioma=='2' %>
+                <td><%= link_to 'Espanhol - Disciplinas', disciplinas3sesp_url %></td>
               <% else %>
-              <td><%= link_to 'Disciplinas', disciplinas3s_path %></td>
+              <td><%= link_to 'Disciplinas', disciplinas3s_url %></td>
+              <% end %>
             <% end %>
       		<% end %>
       		<% @conta = @conta+1 %>

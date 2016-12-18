@@ -6,144 +6,153 @@ module SessionsHelper
 		end
 	end
 	
-	
-	def ingles_colaboradores()
+	def ingles()
 		@idioma=Dado.find(1)
 		@idioma.ano = '1'
 		@idioma.save
+	end
+	
+	def espanhol()
+		@idioma=Dado.find(1)
+		@idioma.ano = '2'
+		@idioma.save
+	end
+	
+	def portugues()
+		@idioma=Dado.find(1)
+		@idioma.ano = '3'
+		@idioma.save
+	end
+	
+	
+	def ingles_colaboradores()
+		ingles()
 		redirect_to colaboradores_url
 	end
 	
 	def ingles_finais()
-		@idioma=Dado.find(1)
-		@idioma.ano = '1'
-		@idioma.save
+		ingles()
 		redirect_to finais_url
 	end
 	
 	def ingles_grupos()
-		@idioma=Dado.find(1)
-		@idioma.ano = '1'
-		@idioma.save
+		ingles()
 		redirect_to grupos_url
 	end
 	
 	def ingles_linhas()
-		@idioma=Dado.find(1)
-		@idioma.ano = '1'
-		@idioma.save
+		ingles()
 		redirect_to linhas_url
 	end
 	
 	def ingles_financas()
-		@idioma=Dado.find(1)
-		@idioma.ano = '1'
-		@idioma.save
+		ingles()
 		redirect_to financas_url
 	end
 		def ingles_links()
-		@idioma=Dado.find(1)
-		@idioma.ano = '1'
-		@idioma.save
+		ingles()
 		redirect_to links_url
 	end
+	
 	def ingles_publicas()
-		@idioma=Dado.find(1)
-		@idioma.ano = '1'
-		@idioma.save
-		redirect_to publicas_url
+			ingles()
+			redirect_to publicas_url
 	end
 	
-		def ingles_eventos()
-		@idioma=Dado.find(1)
-		@idioma.ano = '1'
-		@idioma.save
-		redirect_to eventos_url
+	def ingles_eventos()
+			ingles()
+			redirect_to eventos_url
 	end
 
 	
 	def ingles_seletivos()
-		@idioma=Dado.find(1)
-		@idioma.ano = '1'
-		@idioma.save
+		ingles()
 		redirect_to processo_seletivos_url
 	end
 	
 	def ingles_docentes()
-		@idioma=Dado.find(1)
-		@idioma.ano = '1'
-		@idioma.save
+		ingles()
 		redirect_to docentes_url
 	end
 	
+		
+	def ingles_disciplinas()
+		ingles()
+		redirect_to disciplinas_url
+	end
+
+	def ingles_disciplinas2s()
+		ingles()
+		redirect_to disciplinas2s_url
+	end
+		def ingles_disciplinas3s()
+		ingles()
+		redirect_to disciplinas3s_url
+	end
+	
+	def espanhol_disciplinas3s()
+		espanhol()
+		redirect_to disciplinas3s_url
+	end
+	def espanhol_disciplinas2s()
+		espanhol()
+		redirect_to disciplinas2s_url
+	end
+	
+	def espanhol_disciplinas()
+		espanhol()
+		redirect_to disciplinas_url
+	end
+	
+	
 	def espanhol_docentes()
-		@idioma=Dado.find(1)
-		@idioma.ano = '2'
-		@idioma.save
+		espanhol()
 		redirect_to docentes_url
 	end
 	
 	
 	def espanhol_seletivos()
-		@idioma=Dado.find(1)
-		@idioma.ano = '2'
-		@idioma.save
+		espanhol()
 		redirect_to processo_seletivos_url
 	end
 
 	
 	def espanhol_eventos()
-		@idioma=Dado.find(1)
-		@idioma.ano = '2'
-		@idioma.save
+		espanhol()
 		redirect_to eventos_url
 	end
 	
 	def espanhol_publicas()
-		@idioma=Dado.find(1)
-		@idioma.ano = '2'
-		@idioma.save
+		espanhol()
 		redirect_to publicas_url
 	end
 	def espanhol_links()
-		@idioma=Dado.find(1)
-		@idioma.ano = '2'
-		@idioma.save
+		espanhol()
 		redirect_to links_url
 	end
 
 	def espanhol_colaboradores()
-		@idioma=Dado.find(1)
-		@idioma.ano = '2'
-		@idioma.save
+		espanhol()
 		redirect_to colaboradores_url
 	end
 	
 	def espanhol_finais()
-		@idioma=Dado.find(1)
-		@idioma.ano = '2'
-		@idioma.save
+		espanhol()
 		redirect_to finais_url
 	end
 	
 	def espanhol_grupos()
-		@idioma=Dado.find(1)
-		@idioma.ano = '2'
-		@idioma.save
+		espanhol()
 		redirect_to grupos_url
 	end
 	
 	def espanhol_linhas()
-		@idioma=Dado.find(1)
-		@idioma.ano = '2'
-		@idioma.save
+		espanhol()
 		redirect_to linhas_url
 	end
 	
 	def espanhol_financas()
-		@idioma=Dado.find(1)
-		@idioma.ano = '2'
-		@idioma.save
+		espanhol()
 		redirect_to financas_url
 	end
 	
