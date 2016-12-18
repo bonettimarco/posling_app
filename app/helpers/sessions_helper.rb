@@ -1,26 +1,25 @@
 module SessionsHelper
   
-  	def salve()
-		if @aux.save
-			redirect_to egressos_url
-		end
+	def salve()
+		@aux.save
+		redirect_to egressos_url
 	end
 	
 	def ingles()
-		@idioma=Dado.find(1)
-		@idioma.ano = '1'
+		@idioma=Idioma.find(1)
+		@idioma.aux = 1
 		@idioma.save
 	end
 	
 	def espanhol()
-		@idioma=Dado.find(1)
-		@idioma.ano = '2'
+		@idioma=Idioma.find(1)
+		@idioma.aux = 2
 		@idioma.save
 	end
 	
 	def portugues()
-		@idioma=Dado.find(1)
-		@idioma.ano = '3'
+		@idioma=Idioma.find(1)
+		@idioma.aux = 3
 		@idioma.save
 	end
 	
@@ -49,7 +48,8 @@ module SessionsHelper
 		ingles()
 		redirect_to financas_url
 	end
-		def ingles_links()
+	
+	def ingles_links()
 		ingles()
 		redirect_to links_url
 	end
@@ -85,7 +85,8 @@ module SessionsHelper
 		ingles()
 		redirect_to disciplinas2s_url
 	end
-		def ingles_disciplinas3s()
+	
+	def ingles_disciplinas3s()
 		ingles()
 		redirect_to disciplinas3s_url
 	end
@@ -94,6 +95,7 @@ module SessionsHelper
 		espanhol()
 		redirect_to disciplinas3s_url
 	end
+	
 	def espanhol_disciplinas2s()
 		espanhol()
 		redirect_to disciplinas2s_url
@@ -260,7 +262,7 @@ module SessionsHelper
 		salve()
 	end
 	
-		def dout2018
+	def dout2018
 		@aux=Dado.find(1)
 		@aux.ano = '2018'
 		@aux.nivel = 'Doutorado'
@@ -317,7 +319,7 @@ module SessionsHelper
 		salve()
 	end
 	
-		def dout2010
+	def dout2010
 		@aux=Dado.find(1)
 		@aux.ano = '2010'
 		@aux.nivel = 'Doutorado'
@@ -521,3 +523,7 @@ module SessionsHelper
 
 
 end
+
+
+
+

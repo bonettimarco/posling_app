@@ -1,12 +1,11 @@
-<% @aux=Dado.find(1) %>
-<% @idioma=@aux.ano %>
+<% @idioma=Idioma.find(1) %>
 <p id="notice"><%= notice %></p>
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
         
-     <% if @idioma=='1' %>
+     <% if @idioma.aux==1 %>
             <h1>Inglês - Publicações</h1>
-         <% else if @idioma=='2' %>
+         <% else if @idioma.aux==2 %>
             <h1>Espanhol - Publicações</h1>
          <% else %>
             <h1>Publicações</h1>
@@ -44,5 +43,5 @@
             <% end %>
     </div>
 </div>      
-<% @aux.ano = '2000' %>
-<% @aux.save %>
+<% @idioma.aux = 3 %>
+<% @idioma.save %>

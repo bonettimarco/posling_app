@@ -1,9 +1,8 @@
-<% @aux=Dado.find(1) %>
-<% @idioma=@aux.ano %>
+<% @idioma=Idioma.find(1) %>
 <p id="notice"><%= notice %></p>
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
-<% if @idioma=='1' %>
+<% if @idioma.aux==1 %>
  <h1>Inglês - Lista das Disciplinas da Linha 3</h1>
       
       <table class="table table-responsive table-bordered table-hover">
@@ -11,7 +10,7 @@
           <tr>
             <th>Inglês - Text</th>
 
-<% else if @idioma=='2' %>
+<% else if @idioma.aux==2 %>
  <h1>Espanhol - Lista das Disciplinas da Linha 3</h1>
       
       <table class="table table-responsive table-bordered table-hover">
@@ -52,5 +51,5 @@
         <% end %>
     </div>
   </div>  
-<% @aux.ano='2000' %>
-<% @aux.save %>
+<% @idioma.aux='3' %>
+<% @idioma.save %>

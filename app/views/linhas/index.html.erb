@@ -1,11 +1,10 @@
-<% @aux=Dado.find(1) %>
-<% @idioma=@aux.ano %>
+<% @idioma=Idioma.find(1) %>
 <p id="notice"><%= notice %></p>
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
-      <% if @idioma=='1' %>
+      <% if @idioma.aux==1 %>
         <h1>Ingles - Linhas de pesquisa</h1>
-        <% else if @idioma=='2' %>
+        <% else if @idioma.aux==2 %>
           <h1>Espanhol - Linhas de pesquisa</h1>
           <% else %>
               <h1>Linhas de pesquisa</h1>
@@ -26,9 +25,9 @@
             <tr>
               <td><%= linha.texto %></td>
       		<% if(@conta==1) %>
-              <% if @idioma=='1' %>
+              <% if @idioma.aux==1 %>
                 <td><%= link_to 'Inglês Disciplinas', disciplinasing_url %></td>
-              <% else if @idioma=='2' %>
+              <% else if @idioma.aux==2 %>
                 <td><%= link_to 'Espanhol Disciplinas', disciplinasesp_url %></td>
               <% else %>                
                 <td><%= link_to 'Disciplinas', disciplinas_url %></td>
@@ -36,9 +35,9 @@
           		<% end %>
           <% end %>
       		<% if @conta==2 %>
-              <% if @idioma=='1' %>
+              <% if @idioma.aux==1 %>
                 <td><%= link_to 'Inglês - Disciplinas', disciplinas2sing_url %></td>
-              <% else if @idioma=='2' %>
+              <% else if @idioma.aux==2 %>
                 <td><%= link_to 'Espanhol Disciplinas', disciplinas2sesp_url %></td>
               <% else %>
               <td><%= link_to 'Disciplinas', disciplinas2s_url %></td>
@@ -46,9 +45,9 @@
                 <%end %>
       		<% end %>
       		<% if @conta==3 %>
-              <% if @idioma=='1' %>
+              <% if @idioma.aux==1 %>
                 <td><%= link_to 'Inglês - Disciplinas', disciplinas3sing_url %></td>
-                <% else if @idioma=='2' %>
+                <% else if @idioma.aux==2 %>
                 <td><%= link_to 'Espanhol - Disciplinas', disciplinas3sesp_url %></td>
               <% else %>
               <td><%= link_to 'Disciplinas', disciplinas3s_url %></td>
@@ -72,5 +71,5 @@
       <% end %>
     </div>
 </div>  
-<% @aux.ano = '2000' %>
-<% @aux.save %>
+<% @idioma.aux = '3' %>
+<% @idioma.save %>
