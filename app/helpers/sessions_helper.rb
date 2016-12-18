@@ -77,6 +77,7 @@ module SessionsHelper
 		redirect_to egressing_path
 	end
 	
+	
 	# funções que chamam páginas estáticas em espanhol
 	
 	def espanhol_home
@@ -151,6 +152,11 @@ module SessionsHelper
 		redirect_to colaboradores_url
 	end
 	
+	def ingles_contato()
+		ingles()
+		redirect_to contatos_url
+	end
+
 	def ingles_finais()
 		ingles()
 		redirect_to finais_url
@@ -213,6 +219,11 @@ module SessionsHelper
 		redirect_to disciplinas3s_url
 	end
 	
+	def espanhol_contato()
+		espanhol()
+		redirect_to contatos_url
+	end
+
 	def espanhol_disciplinas3s()
 		espanhol()
 		redirect_to disciplinas3s_url

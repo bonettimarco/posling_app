@@ -81,6 +81,7 @@ get 'docentesesp' => 'espanhol#espanhol_docentes'
 get 'disciplinasesp' => 'espanhol#espanhol_disciplinas'
 get 'disciplinas2sesp' => 'espanhol#espanhol_disciplinas2s'
 get 'disciplinas3sesp' => 'espanhol#espanhol_disciplinas3s'
+get 'espanhol_contato' => 'espanhol#espanhol_contato'
 
 #Links das páginas estáticas em inglês
 get 'ingles_home' => 'ingles#ingles_home'
@@ -110,6 +111,7 @@ get 'docentesing' => 'ingles#ingles_docentes'
 get 'disciplinasing' => 'ingles#ingles_disciplinas'
 get 'disciplinas2sing' => 'ingles#ingles_disciplinas2s'
 get 'disciplinas3sing' => 'ingles#ingles_disciplinas3s'
+get 'ingles_contato' => 'ingles#ingles_contato'
 #Funções de chamada das páginas estáticas em inglês
 get 'ingles_home' => 'ingles#ingles_home'
 get 'ingles_calendario' => 'ingles#ingles_calendario'
