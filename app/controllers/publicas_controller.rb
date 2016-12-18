@@ -11,6 +11,7 @@ class PublicasController < ApplicationController
   # GET /publicas/1.json
   def show
   	if !logged_in?
+		mensagem()
 		redirect_to home_url
 	end
   end
@@ -20,6 +21,7 @@ class PublicasController < ApplicationController
     if logged_in?
 		@publica = Publica.new
 	else
+		mensagem()
 		redirect_to home_url
 	end
   end
@@ -27,6 +29,7 @@ class PublicasController < ApplicationController
   # GET /publicas/1/edit
   def edit
 	if !logged_in?
+		mensagem()
 		redirect_to home_url
 	end
   end
@@ -47,6 +50,7 @@ class PublicasController < ApplicationController
 		end
 		end
 	else 
+		mensagem()
 		redirect_to home_url
 	end
   end
@@ -66,11 +70,16 @@ class PublicasController < ApplicationController
 	
 		end
 	else
+		mensagem()
 		redirect_to home_url
 	end
 	
   end
-
+  
+  def mensagem()
+  		flash[:notice]= "Você precisa logar antes de realizar esta operação"
+  end
+  
   # DELETE /publicas/1
   # DELETE /publicas/1.json
   def destroy

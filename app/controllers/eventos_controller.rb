@@ -11,6 +11,7 @@ class EventosController < ApplicationController
   # GET /eventos/1.json
   def show
   	if !logged_in?
+			mensagem()
 			redirect_to home_url
 		end
   end
@@ -20,6 +21,7 @@ class EventosController < ApplicationController
 	if logged_in?
 		@evento = Evento.new
 	else
+		mensagem()
 		redirect_to home_url
 	end    
   end
@@ -27,6 +29,7 @@ class EventosController < ApplicationController
   # GET /eventos/1/edit
   def edit
   	if !logged_in?
+		mensagem()
 		redirect_to home_url
 	end
   end
@@ -47,6 +50,7 @@ class EventosController < ApplicationController
 		end
 		end
 	else
+		mensagem()
 		redirect_to home_url
 	end
   end
@@ -65,6 +69,7 @@ class EventosController < ApplicationController
 		end
 		end
 	else
+		mensagem()
 		redirect_to home_url
 	end
   end
@@ -78,7 +83,10 @@ class EventosController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  def mensagem()
+  		flash[:notice]= "Você precisa logar antes de realizar esta operação"
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_evento

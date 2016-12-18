@@ -10,21 +10,35 @@ class DisciplinasController < ApplicationController
   # GET /disciplinas/1
   # GET /disciplinas/1.json
   def show
+	if !logged_in
+		mensagem()
+		redirect_to home_url
+	end
   end
 
   # GET /disciplinas/new
   def new
-    @disciplina = Disciplina.new
+    if logged_in
+		@disciplina = Disciplina.new
+	else	
+		mensagem()
+		redirect_to home_url
+	end
   end
 
   # GET /disciplinas/1/edit
   def edit
+	if !logged_in
+		mensagem()
+		redirect_to home_url
+	end
   end
 
   # POST /disciplinas
   # POST /disciplinas.json
   def create
-    @disciplina = Disciplina.new(disciplina_params)
+	if logged_in
+		@disciplina = Disciplina.new(disciplina_params)
 
     respond_to do |format|
       if @disciplina.save
@@ -35,12 +49,17 @@ class DisciplinasController < ApplicationController
         format.json { render json: @disciplina.errors, status: :unprocessable_entity }
       end
     end
+	else
+		mensagem()
+		redirect_to home_url
+	end
   end
 
   # PATCH/PUT /disciplinas/1
   # PATCH/PUT /disciplinas/1.json
   def update
-    respond_to do |format|
+	if logged_in
+		respond_to do |format|
       if @disciplina.update(disciplina_params)
         format.html { redirect_to @disciplina, notice: 'Disciplina was successfully updated.' }
         format.json { render :show, status: :ok, location: @disciplina }
@@ -49,6 +68,10 @@ class DisciplinasController < ApplicationController
         format.json { render json: @disciplina.errors, status: :unprocessable_entity }
       end
     end
+	else
+		mensagem()
+		redirect_to home_url
+	end
   end
 
   # DELETE /disciplinas/1
@@ -60,7 +83,11 @@ class DisciplinasController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  def mensagem()
+  		flash[:notice]= "Você precisa logar antes de realizar esta operação"
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_disciplina

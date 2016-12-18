@@ -10,22 +10,35 @@ class Disciplinas2sController < ApplicationController
   # GET /disciplinas2s/1
   # GET /disciplinas2s/1.json
   def show
+  if !logged_in
+	mensagem()
+	redirect_to home_url
+  end
   end
 
   # GET /disciplinas2s/new
   def new
-    @disciplinas2 = Disciplinas2.new
+	if logged_in
+	    @disciplinas2 = Disciplinas2.new
+	else
+		mensagem()
+		redirect_to home_url
+	end
   end
 
   # GET /disciplinas2s/1/edit
   def edit
+	if !logged_in
+		mensagem()
+		redirect_to home_url
+	end
   end
 
   # POST /disciplinas2s
   # POST /disciplinas2s.json
   def create
-    @disciplinas2 = Disciplinas2.new(disciplinas2_params)
-
+	if logged_in
+		@disciplinas2 = Disciplinas2.new(disciplinas2_params)
     respond_to do |format|
       if @disciplinas2.save
         format.html { redirect_to @disciplinas2, notice: 'Disciplinas2 was successfully created.' }
@@ -35,12 +48,17 @@ class Disciplinas2sController < ApplicationController
         format.json { render json: @disciplinas2.errors, status: :unprocessable_entity }
       end
     end
+	else
+		mensagem()
+		redirect_to home_url
+	end
   end
 
   # PATCH/PUT /disciplinas2s/1
   # PATCH/PUT /disciplinas2s/1.json
   def update
-    respond_to do |format|
+	if logged_in
+		respond_to do |format|
       if @disciplinas2.update(disciplinas2_params)
         format.html { redirect_to @disciplinas2, notice: 'Disciplinas2 was successfully updated.' }
         format.json { render :show, status: :ok, location: @disciplinas2 }
@@ -49,6 +67,10 @@ class Disciplinas2sController < ApplicationController
         format.json { render json: @disciplinas2.errors, status: :unprocessable_entity }
       end
     end
+	else
+		mensagem()
+		redirect_to home_url
+	end
   end
 
   # DELETE /disciplinas2s/1
@@ -60,7 +82,11 @@ class Disciplinas2sController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  def mensagem()
+  		flash[:notice]= "Você precisa logar antes de realizar esta operação"
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_disciplinas2

@@ -11,6 +11,7 @@ class LinksController < ApplicationController
   # GET /links/1.json
   def show
  	if !logged_in?
+		mensagem()
 		redirect_to home_url
 	end
    end
@@ -18,6 +19,7 @@ class LinksController < ApplicationController
   # GET /links/new
   def new
   	if !logged_in?
+		mensagem()
 		redirect_to home_url
 	else
     @link = Link.new
@@ -27,6 +29,7 @@ class LinksController < ApplicationController
   # GET /links/1/edit
   def edit
  	if !logged_in?
+		mensagem()
 		redirect_to home_url
 	end
    end
@@ -35,6 +38,7 @@ class LinksController < ApplicationController
   # POST /links.json
   def create
   	if !logged_in?
+		mensagem()
 		redirect_to home_url
 	else
     @link = Link.new(link_params)
@@ -55,6 +59,7 @@ class LinksController < ApplicationController
   # PATCH/PUT /links/1.json
   def update
  	if !logged_in?
+		mensagem()
 		redirect_to home_url
 	else
      respond_to do |format|
@@ -78,7 +83,11 @@ class LinksController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  def mensagem()
+  		flash[:notice]= "Você precisa logar antes de realizar esta operação"
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_link

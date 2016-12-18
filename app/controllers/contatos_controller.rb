@@ -11,6 +11,7 @@ class ContatosController < ApplicationController
   # GET /contatos/1.json
   def show
       if !logged_in?
+			mensagem()
     		redirect_to home_path
 		return
   end
@@ -20,6 +21,7 @@ class ContatosController < ApplicationController
   # GET /contatos/new
   def new
   if !logged_in?
+		mensagem()
 		redirect_to home_url
 	end
     @contato = Contato.new
@@ -28,6 +30,7 @@ class ContatosController < ApplicationController
   # GET /contatos/1/edit
   def edit
   if !logged_in?
+		mensagem()
 		redirect_to home_url
   end
   end
@@ -36,6 +39,7 @@ class ContatosController < ApplicationController
   # POST /contatos.json
   def create
     if !logged_in?
+		mensagem()
 		redirect_to home_url
 	end
   @contato = Contato.new(contato_params)
@@ -55,6 +59,7 @@ class ContatosController < ApplicationController
   # PATCH/PUT /contatos/1.json
   def update
   if !logged_in?
+		mensagem()
 		redirect_to home_path
   else
     respond_to do |format|
@@ -79,6 +84,9 @@ class ContatosController < ApplicationController
     end
   end
 
+   def mensagem()
+  		flash[:notice]= "Você precisa logar antes de realizar esta operação"
+   end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contato

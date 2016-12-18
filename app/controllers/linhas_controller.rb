@@ -11,6 +11,7 @@ class LinhasController < ApplicationController
   # GET /linhas/1.json
   def show
    	if !logged_in?
+		mensagem()
 		redirect_to home_url
 	end
    end
@@ -20,6 +21,7 @@ class LinhasController < ApplicationController
   	if logged_in?
 		@linha = Linha.new
 	else
+		mensagem()
 		redirect_to home_url
 	end
   end
@@ -27,6 +29,7 @@ class LinhasController < ApplicationController
   # GET /linhas/1/edit
   def edit
  	if !logged_in?
+		mensagem()
 		redirect_to home_url
 	end
    end
@@ -47,6 +50,7 @@ class LinhasController < ApplicationController
       end
     end
 	else
+		mensagem()
 		redirect_to home_url
 	end
   end
@@ -65,8 +69,13 @@ class LinhasController < ApplicationController
       end
     end
 	else
+		mensagem()
 		redirect_to home_url
 	end
+  end
+  
+  def mensagem()
+  		flash[:notice]= "Você precisa logar antes de realizar esta operação"
   end
 
   # DELETE /linhas/1

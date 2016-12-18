@@ -12,6 +12,7 @@ class ColaboradoresController < ApplicationController
   # GET /colaboradores/1.json
   def show
    	if !logged_in?
+		mensagem()
 		redirect_to home_url
 	end
    end
@@ -21,6 +22,7 @@ class ColaboradoresController < ApplicationController
     if logged_in?
 		@colaboradore = Colaboradore.new
 	else
+		mensagem()
 		redirect_to home_url
 	end
   end
@@ -28,6 +30,7 @@ class ColaboradoresController < ApplicationController
   # GET /colaboradores/1/edit
   def edit
 	if !logged_in?
+		mensagem()
 		redirect_to home_url
 	end
   end
@@ -36,13 +39,14 @@ class ColaboradoresController < ApplicationController
   # POST /colaboradores.json
   def create
 	if !logged_in?
+		mensagem()
 		redirect_to home_url
 	end
     @colaboradore = Colaboradore.new(colaboradore_params)
 
     respond_to do |format|
       if @colaboradore.save
-        format.html { redirect_to @colaboradore, notice: 'Colaboradore was successfully created.' }
+        format.html { redirect_to @colaboradore, notice: 'O colaborador foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @colaboradore }
       else
         format.html { render :new }
@@ -55,6 +59,7 @@ class ColaboradoresController < ApplicationController
   # PATCH/PUT /colaboradores/1.json
   def update
 	if !logged_in?
+			mensagem()
 		redirect_to home_url
 	end
     respond_to do |format|
@@ -71,16 +76,17 @@ class ColaboradoresController < ApplicationController
   # DELETE /colaboradores/1
   # DELETE /colaboradores/1.json
   def destroy
-	if !logged_in?
-		redirect_to home_url
-	end
     @colaboradore.destroy
     respond_to do |format|
       format.html { redirect_to colaboradores_url, notice: 'Colaborador foi retirado.' }
       format.json { head :no_content }
     end
   end
-
+  
+  def mensagem()
+  		flash[:notice]= "Você precisa logar antes de realizar esta operação"
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_colaboradore
@@ -92,12 +98,6 @@ class ColaboradoresController < ApplicationController
       params.require(:colaboradore).permit(:nome)
     end
 	
-     def admin_user
-		unless logged_in?
-			@erro=true
-			redirect_to home_url
-		end
-	end
 	
 	
 end

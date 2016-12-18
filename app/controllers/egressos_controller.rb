@@ -14,6 +14,7 @@ class EgressosController < ApplicationController
   # GET /egressos/1.json
   def show 
     if !logged_in?
+		mensagem()
 		redirect_to home_url
 	end
  
@@ -22,6 +23,7 @@ class EgressosController < ApplicationController
   # GET /egressos/new
   def new
    	if !logged_in?
+		mensagem()
 		redirect_to home_url
 	else
 		@egresso = Egresso.new
@@ -31,6 +33,7 @@ class EgressosController < ApplicationController
   # GET /egressos/1/edit
   def edit
  	if !logged_in?
+		mensagem()
 		redirect_to home_url
 	end
    end
@@ -39,6 +42,7 @@ class EgressosController < ApplicationController
   # POST /egressos.json
   def create
   	if !logged_in?
+		mensagem()
 		redirect_to home_url
 	else
     @egresso = Egresso.new(egresso_params)
@@ -59,6 +63,7 @@ class EgressosController < ApplicationController
   # PATCH/PUT /egressos/1.json
   def update
  	if !logged_in?
+		mensagem()
 		redirect_to home_url
 	else
 	respond_to do |format|
@@ -82,7 +87,10 @@ class EgressosController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  def mensagem()
+  		flash[:notice]= "Você precisa logar antes de realizar esta operação"
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_egresso
