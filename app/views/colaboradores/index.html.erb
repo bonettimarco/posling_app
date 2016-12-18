@@ -4,11 +4,12 @@
     <div class="container-fluid ">
 <% if @idioma.aux==1 %>
         <h1>Ingles Colaborators</h1>
+<% else if @idioma.aux==2 %>
+        <h1>Espanhol Colaboradores</h1>
 <% else %>
         <h1>Colaboradores</h1>
 <% end %>
-<% @idioma.aux = 3 %>
-<% @idioma.save %>
+<% end %>
     </div>
     <div class="container-fluid">
         <div class="col-md-10 ">

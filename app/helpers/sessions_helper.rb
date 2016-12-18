@@ -1,19 +1,6 @@
 module SessionsHelper
   
-	def ingles_home
-		ingles()
-		redirect_to homeing_path
-	end
-	
-	def espanhol_home
-		espanhol()
-		redirect_to homeesp_path
-	end
-	
-	def salve()
-		@aux.save
-		redirect_to egressos_url
-	end
+  # funções que determinam língua
 	
 	def ingles()
 		@idioma=Idioma.find(1)
@@ -33,6 +20,131 @@ module SessionsHelper
 		@idioma.save
 	end
 	
+	# funções que chamam páginas estáticas em inglês
+	
+	def ingles_home
+		ingles()
+		redirect_to homeing_path
+	end
+
+	def ingles_calendario
+		ingles()
+		redirect_to calendarioematriculaing_path
+	end
+	
+	def ingles_manual
+		ingles()
+		redirect_to manualdoalunoing_path
+	end
+	
+	def ingles_quem
+		ingles()
+		redirect_to quemsomosing_path
+	end
+	
+	def ingles_regimento
+		ingles()
+		redirect_to regimentosing_path
+	end
+	
+	def ingles_editais
+		ingles()
+		redirect_to editaising_path
+	end
+	
+	def ingles_curriculo
+		ingles()
+		redirect_to estruturacurricularing_path
+	end
+	
+	def ingles_legislacao
+		ingles()
+		redirect_to legislacaoing_path
+	end
+	
+	def ingles_formulario
+		ingles()
+		redirect_to formulariosing_path
+	end
+	
+	def ingles_quadro
+		ingles()
+		redirect_to quadrodehorariosing_path
+	end
+	
+	def ingles_egre
+		ingles()
+		redirect_to egressing_path
+	end
+	
+	# funções que chamam páginas estáticas em espanhol
+	
+	def espanhol_home
+		espanhol()
+		redirect_to homeesp_path
+	end
+
+	def espanhol_calendario
+		espanhol()
+		redirect_to calendarioematriculaesp_path
+	end
+	
+	def espanhol_manual
+		espanhol()
+		redirect_to manualdoalunoesp_path
+	end
+	
+	def espanhol_quem
+		espanhol()
+		redirect_to quemsomosesp_path
+	end
+	
+	def espanhol_regimento
+		espanhol()
+		redirect_to regimentosesp_path
+	end
+	
+	def espanhol_editais
+		espanhol()
+		redirect_to editaisesp_path
+	end
+	
+	def espanhol_curriculo
+		espanhol()
+		redirect_to estruturacurricularesp_path
+	end
+	
+	def espanhol_legislacao
+		espanhol()
+		redirect_to legislacaoesp_path
+	end
+	
+	def espanhol_formulario
+		espanhol()
+		redirect_to formulariosesp_path
+	end
+	
+	def espanhol_quadro
+		espanhol()
+		redirect_to quadrodehorariosesp_path
+	end
+	
+	def espanhol_egre
+		espanhol()
+		redirect_to egressesp_path
+	end
+	
+#outras funções
+
+	def portugues_home
+		portugues()
+		redirect_to home_path
+	end
+
+	def salve()
+		@aux.save
+		redirect_to egressos_url
+	end
 	
 	def ingles_colaboradores()
 		ingles()

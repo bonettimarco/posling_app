@@ -1,3 +1,5 @@
+<% @aux=Idioma.find(1) %>
+<% @idioma=@aux.aux %>
 <p id="notice"><%= notice %></p>
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
@@ -6,12 +8,29 @@
         <table class="table table-responsive table-bordered table-hover">
           <thead>
             <tr>
+          <% if @idioma==1 %>
+              <th>Inglês Ano</th>
+              <th>Inglês Nivel</th>
+              <th>Inglês Nome</th>
+              <th>Lattes</th>
+              <th>Inglês Orientador</th>
+              <th>Inglês Defesa</th>
+          <% else if @idioma==2 %>
+              <th>Espanhol Ano</th>
+              <th>Espanhol Nivel</th>
+              <th>Espanhol Nome</th>
+              <th>Lattes</th>
+              <th>Espanhol Orientador</th>
+              <th>Espanhol Defesa</th>
+          <% else %>
               <th>Ano</th>
               <th>Nivel</th>
               <th>Nome</th>
               <th>Lattes</th>
               <th>Orientador</th>
               <th>Defesa</th>
+              <% end %>
+              <% end %>
               <th colspan="3"></th>
             </tr>
           </thead>
