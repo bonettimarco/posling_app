@@ -10,6 +10,11 @@ class ContatosController < ApplicationController
   # GET /contatos/1
   # GET /contatos/1.json
   def show
+      if !logged_in?
+    		redirect_to home_path
+		return
+  end
+
   end
 
   # GET /contatos/new
@@ -51,8 +56,7 @@ class ContatosController < ApplicationController
   def update
   if !logged_in?
 		redirect_to home_path
-		return
-  end
+  else
     respond_to do |format|
       if @contato.update(contato_params)
         format.html { redirect_to @contato, notice: 'Contato was successfully updated.' }
@@ -62,6 +66,7 @@ class ContatosController < ApplicationController
         format.json { render json: @contato.errors, status: :unprocessable_entity }
       end
     end
+  end
   end
 
   # DELETE /contatos/1
