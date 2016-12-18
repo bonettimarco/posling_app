@@ -10,21 +10,33 @@ class FinancasController < ApplicationController
   # GET /financas/1
   # GET /financas/1.json
   def show
+   	if !logged_in?
+		redirect_to home_url
+	end
+ 
   end
 
   # GET /financas/new
   def new
-    @financa = Financa.new
+   	if logged_in?
+		@financa = Financa.new
+	else
+		redirect_to home_url
+	end
   end
 
   # GET /financas/1/edit
   def edit
-  end
+ 	if !logged_in?
+		redirect_to home_url
+	end
+   end
 
   # POST /financas
   # POST /financas.json
   def create
-    @financa = Financa.new(financa_params)
+  	if logged_in?
+		@financa = Financa.new(financa_params)
 
     respond_to do |format|
       if @financa.save
@@ -35,12 +47,16 @@ class FinancasController < ApplicationController
         format.json { render json: @financa.errors, status: :unprocessable_entity }
       end
     end
+	else
+		redirect_to home_url
+	end
   end
 
   # PATCH/PUT /financas/1
   # PATCH/PUT /financas/1.json
   def update
-    respond_to do |format|
+ 	if logged_in?
+		respond_to do |format|
       if @financa.update(financa_params)
         format.html { redirect_to @financa, notice: 'Financa was successfully updated.' }
         format.json { render :show, status: :ok, location: @financa }
@@ -49,6 +65,9 @@ class FinancasController < ApplicationController
         format.json { render json: @financa.errors, status: :unprocessable_entity }
       end
     end
+	else
+		redirect_to home_url
+	end
   end
 
   # DELETE /financas/1

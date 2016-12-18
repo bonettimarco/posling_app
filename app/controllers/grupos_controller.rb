@@ -10,21 +10,32 @@ class GruposController < ApplicationController
   # GET /grupos/1
   # GET /grupos/1.json
   def show
-  end
+   	if !logged_in?
+		redirect_to home_url
+	end
+ end
 
   # GET /grupos/new
   def new
-    @grupo = Grupo.new
+  	if logged_in?
+		@grupo = Grupo.new
+	else
+		redirect_to home_url
+	end
   end
 
   # GET /grupos/1/edit
   def edit
-  end
+   	if !logged_in?
+		redirect_to home_url
+	end
+   end
 
   # POST /grupos
   # POST /grupos.json
   def create
-    @grupo = Grupo.new(grupo_params)
+  	if logged_in?
+		@grupo = Grupo.new(grupo_params)
 
     respond_to do |format|
       if @grupo.save
@@ -35,12 +46,16 @@ class GruposController < ApplicationController
         format.json { render json: @grupo.errors, status: :unprocessable_entity }
       end
     end
+	else
+		redirect_to home_url
+	end
   end
 
   # PATCH/PUT /grupos/1
   # PATCH/PUT /grupos/1.json
   def update
-    respond_to do |format|
+ 	if logged_in?
+		respond_to do |format|
       if @grupo.update(grupo_params)
         format.html { redirect_to @grupo, notice: 'Grupo was successfully updated.' }
         format.json { render :show, status: :ok, location: @grupo }
@@ -49,6 +64,9 @@ class GruposController < ApplicationController
         format.json { render json: @grupo.errors, status: :unprocessable_entity }
       end
     end
+	else
+		redirect_to home_url
+	end
   end
 
   # DELETE /grupos/1

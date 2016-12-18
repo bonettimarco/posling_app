@@ -10,20 +10,33 @@ class LinksController < ApplicationController
   # GET /links/1
   # GET /links/1.json
   def show
-  end
+ 	if !logged_in?
+		redirect_to home_url
+	end
+   end
 
   # GET /links/new
   def new
+  	if !logged_in?
+		redirect_to home_url
+	else
     @link = Link.new
+	end
   end
 
   # GET /links/1/edit
   def edit
-  end
+ 	if !logged_in?
+		redirect_to home_url
+	end
+   end
 
   # POST /links
   # POST /links.json
   def create
+  	if !logged_in?
+		redirect_to home_url
+	else
     @link = Link.new(link_params)
 
     respond_to do |format|
@@ -35,12 +48,16 @@ class LinksController < ApplicationController
         format.json { render json: @link.errors, status: :unprocessable_entity }
       end
     end
+	end
   end
 
   # PATCH/PUT /links/1
   # PATCH/PUT /links/1.json
   def update
-    respond_to do |format|
+ 	if !logged_in?
+		redirect_to home_url
+	else
+     respond_to do |format|
       if @link.update(link_params)
         format.html { redirect_to @link, notice: 'Link was successfully updated.' }
         format.json { render :show, status: :ok, location: @link }
@@ -49,6 +66,7 @@ class LinksController < ApplicationController
         format.json { render json: @link.errors, status: :unprocessable_entity }
       end
     end
+	end
   end
 
   # DELETE /links/1

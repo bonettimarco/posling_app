@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161215133822) do
+ActiveRecord::Schema.define(version: 20161218161526) do
+
+  create_table "Idioma", primary_key: "idioma", force: :cascade do |t|
+  end
 
   create_table "colaboradores", force: :cascade do |t|
     t.string   "nome"
@@ -140,6 +143,7 @@ ActiveRecord::Schema.define(version: 20161215133822) do
     t.string   "password_digest"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.boolean  "admin"
   end
 
 end

@@ -10,37 +10,54 @@ class DocentesController < ApplicationController
   # GET /docentes/1
   # GET /docentes/1.json
   def show
+   	if !logged_in?
+		redirect_to home_url
+	end
+ 
   end
 
   # GET /docentes/new
   def new
-    @docente = Docente.new
+  	if logged_in?
+		@docente = Docente.new
+	else
+		redirect_to home_url
+	end
   end
 
   # GET /docentes/1/edit
   def edit
+   	if !logged_in?
+		redirect_to home_url
+	end
+ 
   end
 
   # POST /docentes
   # POST /docentes.json
   def create
-    @docente = Docente.new(docente_params)
+ 	if logged_in?
+		@docente = Docente.new(docente_params)
 
-    respond_to do |format|
-      if @docente.save
-        format.html { redirect_to @docente, notice: 'Docente was successfully created.' }
-        format.json { render :show, status: :created, location: @docente }
-      else
-        format.html { render :new }
-        format.json { render json: @docente.errors, status: :unprocessable_entity }
-      end
-    end
+			respond_to do |format|
+			if @docente.save
+				format.html { redirect_to @docente, notice: 'Docente was successfully created.' }
+				format.json { render :show, status: :created, location: @docente }
+			else
+				format.html { render :new }
+				format.json { render json: @docente.errors, status: :unprocessable_entity }
+			end
+			end
+		else
+			redirect_to home_url
+		end
   end
 
   # PATCH/PUT /docentes/1
   # PATCH/PUT /docentes/1.json
   def update
-    respond_to do |format|
+ 	if logged_in?
+     respond_to do |format|
       if @docente.update(docente_params)
         format.html { redirect_to @docente, notice: 'Docente was successfully updated.' }
         format.json { render :show, status: :ok, location: @docente }
@@ -49,6 +66,9 @@ class DocentesController < ApplicationController
         format.json { render json: @docente.errors, status: :unprocessable_entity }
       end
     end
+	else
+		redirect_to home_url
+	end
   end
 
   # DELETE /docentes/1

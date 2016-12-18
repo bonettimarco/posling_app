@@ -12,21 +12,35 @@ class EgressosController < ApplicationController
 
   # GET /egressos/1
   # GET /egressos/1.json
-  def show
+  def show 
+    if !logged_in?
+		redirect_to home_url
+	end
+ 
   end
 
   # GET /egressos/new
   def new
-    @egresso = Egresso.new
+   	if !logged_in?
+		redirect_to home_url
+	else
+		@egresso = Egresso.new
+	end
   end
 
   # GET /egressos/1/edit
   def edit
-  end
+ 	if !logged_in?
+		redirect_to home_url
+	end
+   end
 
   # POST /egressos
   # POST /egressos.json
   def create
+  	if !logged_in?
+		redirect_to home_url
+	else
     @egresso = Egresso.new(egresso_params)
 
     respond_to do |format|
@@ -38,12 +52,16 @@ class EgressosController < ApplicationController
         format.json { render json: @egresso.errors, status: :unprocessable_entity }
       end
     end
+	end
   end
 
   # PATCH/PUT /egressos/1
   # PATCH/PUT /egressos/1.json
   def update
-    respond_to do |format|
+ 	if !logged_in?
+		redirect_to home_url
+	else
+	respond_to do |format|
       if @egresso.update(egresso_params)
         format.html { redirect_to @egresso, notice: 'Egresso was successfully updated.' }
         format.json { render :show, status: :ok, location: @egresso }
@@ -52,6 +70,7 @@ class EgressosController < ApplicationController
         format.json { render json: @egresso.errors, status: :unprocessable_entity }
       end
     end
+	end
   end
 
   # DELETE /egressos/1

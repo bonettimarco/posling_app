@@ -1,6 +1,7 @@
 class ColaboradoresController < ApplicationController
   before_action :set_colaboradore, only: [:show, :edit, :update, :destroy]
 
+
   # GET /colaboradores
   # GET /colaboradores.json
   def index
@@ -10,20 +11,33 @@ class ColaboradoresController < ApplicationController
   # GET /colaboradores/1
   # GET /colaboradores/1.json
   def show
-  end
+   	if !logged_in?
+		redirect_to home_url
+	end
+   end
 
   # GET /colaboradores/new
   def new
-    @colaboradore = Colaboradore.new
+    if logged_in?
+		@colaboradore = Colaboradore.new
+	else
+		redirect_to home_url
+	end
   end
 
   # GET /colaboradores/1/edit
   def edit
+	if !logged_in?
+		redirect_to home_url
+	end
   end
 
   # POST /colaboradores
   # POST /colaboradores.json
   def create
+	if !logged_in?
+		redirect_to home_url
+	end
     @colaboradore = Colaboradore.new(colaboradore_params)
 
     respond_to do |format|
@@ -40,6 +54,9 @@ class ColaboradoresController < ApplicationController
   # PATCH/PUT /colaboradores/1
   # PATCH/PUT /colaboradores/1.json
   def update
+	if !logged_in?
+		redirect_to home_url
+	end
     respond_to do |format|
       if @colaboradore.update(colaboradore_params)
         format.html { redirect_to @colaboradore, notice: 'Colaboradore was successfully updated.' }
@@ -54,6 +71,9 @@ class ColaboradoresController < ApplicationController
   # DELETE /colaboradores/1
   # DELETE /colaboradores/1.json
   def destroy
+	if !logged_in?
+		redirect_to home_url
+	end
     @colaboradore.destroy
     respond_to do |format|
       format.html { redirect_to colaboradores_url, notice: 'Colaborador foi retirado.' }
@@ -71,4 +91,13 @@ class ColaboradoresController < ApplicationController
     def colaboradore_params
       params.require(:colaboradore).permit(:nome)
     end
+	
+     def admin_user
+		unless logged_in?
+			@erro=true
+			redirect_to home_url
+		end
+	end
+	
+	
 end
