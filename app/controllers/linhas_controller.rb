@@ -10,21 +10,32 @@ class LinhasController < ApplicationController
   # GET /linhas/1
   # GET /linhas/1.json
   def show
-  end
+   	if !logged_in?
+		redirect_to home_url
+	end
+   end
 
   # GET /linhas/new
   def new
-    @linha = Linha.new
+  	if logged_in?
+		@linha = Linha.new
+	else
+		redirect_to home_url
+	end
   end
 
   # GET /linhas/1/edit
   def edit
-  end
+ 	if !logged_in?
+		redirect_to home_url
+	end
+   end
 
   # POST /linhas
   # POST /linhas.json
   def create
-    @linha = Linha.new(linha_params)
+  	if logged_in?
+		@linha = Linha.new(linha_params)
 
     respond_to do |format|
       if @linha.save
@@ -35,12 +46,16 @@ class LinhasController < ApplicationController
         format.json { render json: @linha.errors, status: :unprocessable_entity }
       end
     end
+	else
+		redirect_to home_url
+	end
   end
 
   # PATCH/PUT /linhas/1
   # PATCH/PUT /linhas/1.json
   def update
-    respond_to do |format|
+ 	if logged_in?
+		respond_to do |format|
       if @linha.update(linha_params)
         format.html { redirect_to @linha, notice: 'Linha was successfully updated.' }
         format.json { render :show, status: :ok, location: @linha }
@@ -49,6 +64,9 @@ class LinhasController < ApplicationController
         format.json { render json: @linha.errors, status: :unprocessable_entity }
       end
     end
+	else
+		redirect_to home_url
+	end
   end
 
   # DELETE /linhas/1

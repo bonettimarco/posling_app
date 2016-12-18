@@ -10,45 +10,63 @@ class ProcessoSeletivosController < ApplicationController
   # GET /processo_seletivos/1
   # GET /processo_seletivos/1.json
   def show
+  	if !logged_in?
+		redirect_to home_url
+	end
   end
 
   # GET /processo_seletivos/new
   def new
-    @processo_seletivo = ProcessoSeletivo.new
+	if logged_in?
+		@processo_seletivo = ProcessoSeletivo.new
+	else
+		redirect_to home_url
+	end
   end
 
   # GET /processo_seletivos/1/edit
   def edit
-  end
+  	if !logged_in?
+		redirect_to home_url
+	end
+ end
 
   # POST /processo_seletivos
   # POST /processo_seletivos.json
   def create
-    @processo_seletivo = ProcessoSeletivo.new(processo_seletivo_params)
+ 	if logged_in?
+		@processo_seletivo = ProcessoSeletivo.new(processo_seletivo_params)
 
-    respond_to do |format|
-      if @processo_seletivo.save
-        format.html { redirect_to @processo_seletivo, notice: 'Processo seletivo was successfully created.' }
-        format.json { render :show, status: :created, location: @processo_seletivo }
-      else
-        format.html { render :new }
-        format.json { render json: @processo_seletivo.errors, status: :unprocessable_entity }
-      end
-    end
+		respond_to do |format|
+		if @processo_seletivo.save
+			format.html { redirect_to @processo_seletivo, notice: 'Processo seletivo was successfully created.' }
+			format.json { render :show, status: :created, location: @processo_seletivo }
+		else
+			format.html { render :new }
+			format.json { render json: @processo_seletivo.errors, status: :unprocessable_entity }
+		end
+		end
+	else
+		redirect_to home_url
+	end
   end
 
   # PATCH/PUT /processo_seletivos/1
   # PATCH/PUT /processo_seletivos/1.json
   def update
-    respond_to do |format|
-      if @processo_seletivo.update(processo_seletivo_params)
-        format.html { redirect_to @processo_seletivo, notice: 'Processo seletivo was successfully updated.' }
-        format.json { render :show, status: :ok, location: @processo_seletivo }
-      else
-        format.html { render :edit }
-        format.json { render json: @processo_seletivo.errors, status: :unprocessable_entity }
-      end
-    end
+ 	if logged_in?
+		respond_to do |format|
+			if @processo_seletivo.update(processo_seletivo_params)
+				format.html { redirect_to @processo_seletivo, notice: 'Processo seletivo was successfully updated.' }
+				format.json { render :show, status: :ok, location: @processo_seletivo }
+			else
+				format.html { render :edit }
+				format.json { render json: @processo_seletivo.errors, status: :unprocessable_entity }
+			end
+			end
+	else
+		redirect_to home_url
+	end
   end
 
   # DELETE /processo_seletivos/1

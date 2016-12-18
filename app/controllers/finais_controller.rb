@@ -10,20 +10,33 @@ class FinaisController < ApplicationController
   # GET /finais/1
   # GET /finais/1.json
   def show
-  end
+   	if !logged_in?
+		redirect_to home_url
+	end
+ end
 
   # GET /finais/new
   def new
+  	if !logged_in?
+		redirect_to home_url
+	else
     @finai = Finai.new
+	end
   end
 
   # GET /finais/1/edit
   def edit
-  end
+ 	if !logged_in?
+		redirect_to home_url
+	end
+   end
 
   # POST /finais
   # POST /finais.json
   def create
+  	if !logged_in?
+		redirect_to home_url
+	else
     @finai = Finai.new(finai_params)
 
     respond_to do |format|
@@ -35,12 +48,16 @@ class FinaisController < ApplicationController
         format.json { render json: @finai.errors, status: :unprocessable_entity }
       end
     end
+	end
   end
 
   # PATCH/PUT /finais/1
   # PATCH/PUT /finais/1.json
   def update
-    respond_to do |format|
+ 	if !logged_in?
+		redirect_to home_url
+	else
+     respond_to do |format|
       if @finai.update(finai_params)
         format.html { redirect_to @finai, notice: 'Finai was successfully updated.' }
         format.json { render :show, status: :ok, location: @finai }
@@ -49,6 +66,7 @@ class FinaisController < ApplicationController
         format.json { render json: @finai.errors, status: :unprocessable_entity }
       end
     end
+	end
   end
 
   # DELETE /finais/1
@@ -58,7 +76,7 @@ class FinaisController < ApplicationController
     respond_to do |format|
       format.html { redirect_to finais_url, notice: 'Finai was successfully destroyed.' }
       format.json { head :no_content }
-    end
+	end
   end
 
   private

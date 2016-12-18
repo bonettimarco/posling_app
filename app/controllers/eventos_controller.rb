@@ -10,45 +10,63 @@ class EventosController < ApplicationController
   # GET /eventos/1
   # GET /eventos/1.json
   def show
+  	if !logged_in?
+			redirect_to home_url
+		end
   end
 
   # GET /eventos/new
   def new
-    @evento = Evento.new
+	if logged_in?
+		@evento = Evento.new
+	else
+		redirect_to home_url
+	end    
   end
 
   # GET /eventos/1/edit
   def edit
+  	if !logged_in?
+		redirect_to home_url
+	end
   end
 
   # POST /eventos
   # POST /eventos.json
   def create
-    @evento = Evento.new(evento_params)
+	if logged_in?
+		@evento = Evento.new(evento_params)
 
-    respond_to do |format|
-      if @evento.save
-        format.html { redirect_to @evento, notice: 'Evento was successfully created.' }
-        format.json { render :show, status: :created, location: @evento }
-      else
-        format.html { render :new }
-        format.json { render json: @evento.errors, status: :unprocessable_entity }
-      end
-    end
+		respond_to do |format|
+		if @evento.save
+			format.html { redirect_to @evento, notice: 'Evento was successfully created.' }
+			format.json { render :show, status: :created, location: @evento }
+		else
+			format.html { render :new }
+			format.json { render json: @evento.errors, status: :unprocessable_entity }
+		end
+		end
+	else
+		redirect_to home_url
+	end
   end
 
   # PATCH/PUT /eventos/1
   # PATCH/PUT /eventos/1.json
   def update
-    respond_to do |format|
-      if @evento.update(evento_params)
-        format.html { redirect_to @evento, notice: 'Evento was successfully updated.' }
-        format.json { render :show, status: :ok, location: @evento }
-      else
-        format.html { render :edit }
-        format.json { render json: @evento.errors, status: :unprocessable_entity }
-      end
-    end
+	if logged_in?
+		respond_to do |format|
+		if @evento.update(evento_params)
+			format.html { redirect_to @evento, notice: 'Evento was successfully updated.' }
+			format.json { render :show, status: :ok, location: @evento }
+		else
+			format.html { render :edit }
+			format.json { render json: @evento.errors, status: :unprocessable_entity }
+		end
+		end
+	else
+		redirect_to home_url
+	end
   end
 
   # DELETE /eventos/1
