@@ -1,5 +1,15 @@
 module SessionsHelper
   
+	def ingles_home
+		ingles()
+		redirect_to homeing_path
+	end
+	
+	def espanhol_home
+		espanhol()
+		redirect_to homeesp_path
+	end
+	
 	def salve()
 		@aux.save
 		redirect_to egressos_url

@@ -1,5 +1,5 @@
-<% @aux=Dado.find(1) %>
-<% @idioma=@aux.ano %>
+<% @aux=Idioma.find(1) %>
+<% @idioma=@aux.aux %>
   <nav class="navbar navbar-default fundobranco">
   <div class="container-fluid fundobranco">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -16,15 +16,49 @@
       <ul class="nav navbar-nav navbar-left">
         <li><a href = 'home'>Home</a></li>
          <li class="dropdown">
+		  <% if @idioma==1 %>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inglês Sobre nós<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+			<li><a href ="linksing">Inglês Links</a></li>
+            <li><a href ="publicasing">Inglês Publications</a></li>
+            <li><a href ="eventosing">Inglês Events</a></li>
+            <li><a href ="seletivosing">Inglês Selective process</a></li>
+			<% else if @idioma==2 %>
+		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Espanhol Sobre nós<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+			<li><a href ="linksesp">Espanhol Links</a></li>
+            <li><a href ="publicasesp">Espanhol Publicaciones</a></li>
+            <li><a href ="eventosesp">Espanhol Eventos</a></li>
+            <li><a href ="seletivosesp">Espanhol Processo seletivo</a></li>
+			<% else %>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sobre nós<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href ="links">Links</a></li>
+		    <li><a href ="links">Links</a></li>
             <li><a href ="publicas">Publicações</a></li>
             <li><a href ="eventos">Eventos</a></li>
             <li><a href ="processo_seletivos">Processo seletivo</a></li>
+			<% end %>
+			<%end %>
           </ul>
         </li>
         <li class="dropdown">
+		  <% if @idioma==1 %>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inglês Apresentação<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Inglês Quem Somos",quemsomos_path%></li>
+            <li><a href="docentesing">Inglês Corpo Docente</a></li>
+            <li><%= link_to "Inglês Regimentos", regimentosing_path%></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Inglês Finanças", financasing_path%></li>
+		  <% else if @idioma==2 %>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Espanhol Apresentação<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Espanhol Quem Somos",quemsomosesp_path%></li>
+            <li><a href="docentesesp">Espanhol Corpo Docente</a></li>
+            <li><%= link_to "Espanhol Regimentos", regimentosesp_path%></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Espanhol Finanças", financasesp_path%></li>
+		  <% else %>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Apresentação<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Quem Somos",quemsomos_path%></li>
@@ -32,9 +66,28 @@
             <li><%= link_to "Regimentos", regimentos_path%></li>
             <li role="separator" class="divider"></li>
             <li><%= link_to "Finanças", financas_path%></li>
-          </ul>
+		<% end %>
+		<% end %>
+    	  </ul>
         </li>
         <li class="dropdown">
+		  <% if @idioma==1 %>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inglês Acadêmicos<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Inglês Calendário e Matricula",calendarioematriculaing_path %></li>
+            <li><%= link_to "Inglês Grupos de Pesquisas", gruposing_path %></li>
+            <li><%= link_to "Inglês Linhas de Pesquisas", linhasing_path %></li>
+            <li><%= link_to "Inglês Trabalhos Finais", finaising_path %></li>
+            <li><%= link_to "Inglês Egressos", egressing_path %></li>
+		  <% else if @idioma==2 %>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Espanhol Acadêmicos<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Espanhol Calendário e Matricula",calendarioematriculaesp_path %></li>
+            <li><%= link_to "Espanhol Grupos de Pesquisas", gruposesp_path %></li>
+            <li><%= link_to "Espanhol Linhas de Pesquisas", linhasesp_path %></li>
+            <li><%= link_to "Espanhol Trabalhos Finais", finaisesp_path %></li>
+            <li><%= link_to "Espanhol Egressos", egressesp_path %></li>
+		  <% else %>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acadêmicos<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Calendário e Matricula",calendarioematricula_path %></li>
@@ -42,10 +95,31 @@
             <li><%= link_to "Linhas de Pesquisas", linhas_path %></li>
             <li><%= link_to "Trabalhos Finais", finais_path %></li>
             <li><%= link_to "Egressos", egress_path %></li>
-          </ul>
+			<% end %>
+			<% end %>
+		  </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Organização<span class="caret"></span></a>
+   		  <% if @idioma==1 %>
+		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inglês Organização<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Inglês Editais", editaising_path %><li>
+            <li><%= link_to "Inglês Estrutura Curricular", estruturacurricularing_path%></li>
+            <li><%= link_to "Inglês Quadro de horarios", quadrodehorariosing_path%></li>
+            <li><%= link_to "Inglês Legislação", legislacaoing_path%></li>
+            <li><a href = 'regimentosing'>Inglês Regimentos</a></li>
+            <li><%= link_to "Inglês Formulários", formulariosing_path%></li>
+   		  <% else if @idioma==2 %>
+		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Espanhol Organização<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Espanhol Editais", editaisesp_path %><li>
+            <li><%= link_to "Espanhol Estrutura Curricular", estruturacurricularesp_path%></li>
+            <li><%= link_to "Espanhol Quadro de horarios", quadrodehorariosesp_path%></li>
+            <li><%= link_to "Espanhol Legislação", legislacaoesp_path%></li>
+            <li><a href = 'regimentosesp'>Espanhol Regimentos</a></li>
+            <li><%= link_to "Espanhol Formulários", formulariosesp_path%></li>
+   		  <% else %>
+		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Organização<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Editais", editais_path %><li>
             <li><%= link_to "Estrutura Curricular", estruturacurricular_path%></li>
@@ -53,21 +127,36 @@
             <li><%= link_to "Legislação", legislacao_path%></li>
             <li><a href = 'regimentos'>Regimentos</a></li>
             <li><%= link_to "Formulários", formularios_path%></li>
+			<% end %>
+			<% end %>
           </ul>
         </li>
          <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Parceiros<span class="caret"></span></a>
+   		  <% if @idioma==1 %>
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inglês Parceiros<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Inglês Colaboradores", colaboradoresing_path %><li>
+            <li><%= link_to "Inglês Instituições", linksing_path %></li>
+   		  <% else if @idioma==2 %>
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Espanhol Parceiros<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Espanhol Colaboradores", colaboradoresesp_path %><li>
+            <li><%= link_to "Espanhol Instituições", linksesp_path %></li>
+   		  <% else %>
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Parceiros<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Colaboradores", colaboradores_path %><li>
             <li><%= link_to "Instituições", links_path %></li>
+			<% end %>
+			<% end %>
           </ul>
         </li>
         
         </ul>
         
         <ul class="nav navbar-nav navbar-right ">
-      <li><a href="homeing">English<%@idioma = 1%></a></li>  
-        <li><a href="homeesp">Español<%@idioma = 2%></a></li>    
+      <li><a href="ingles_home">English</a></li>  
+        <li><a href="espanhol_home">Español</a></li>    
 
       </ul>
       
@@ -105,3 +194,5 @@
     </nav>
   </div>
 -->
+<% @aux.aux=3 %>
+<% @aux.save %>
