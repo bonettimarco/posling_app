@@ -3,7 +3,7 @@
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
      <% if @idioma.aux==1 %>
-         <h1>Inglês - Finanças</h1>
+         <h1>Finances</h1>
          <% else if @idioma.aux==2 %>
          <h1> Espanhol Finanças</h1>
          <% else %>
@@ -14,8 +14,8 @@
           <thead>
             <tr>
              <% if @idioma.aux==1 %>
-              <th>Inglês - Cabecalho</th>
-              <th>Inglês - Text</th>
+              <th>Title</th>
+              <th>Text</th>
               <% else if @idioma.aux==2 %>
               <th>Espanhol - Cabecalho</th>
               <th>Espanhol - Texto</th>
@@ -24,7 +24,9 @@
               <th>Texto</th>
               <% end %>
             <% end %>
+            <% if logged_in? %>
               <th colspan="3"></th>
+            <% end %>
             </tr>
           </thead>
         

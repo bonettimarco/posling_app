@@ -3,7 +3,7 @@
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
      <% if @idioma.aux==1 %>
-            <h1>Inglês - Docentes</h1>
+            <h1>Teacher Area</h1>
          <% else if @idioma.aux==2 %>
             <h1>Espanhol - Docentes</h1>
          <% else %>
@@ -14,12 +14,12 @@
 
 <table class="table table-responsive table-bordered table-hover">
   <thead>
-     <% if @idioma=='1' %>
+     <% if @idioma.aux==1 %>
     <tr>
-      <th>Inglês - Linha</th>
-      <th>Inglês - Nome</th>
+      <th>Line</th>
+      <th>Name</th>
 
-         <% else if @idioma=='2' %>
+         <% else if @idioma.aux==1 %>
     <tr>
       <th>Espanhol - Linha</th>
       <th>Espanhol - Nome</th>

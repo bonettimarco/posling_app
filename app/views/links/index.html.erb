@@ -8,8 +8,8 @@
         <thead>
           <tr>
      <% if @idioma.aux==1 %>
-             <th>Ingles - Link</th>
-            <th>Inglês - Texto</th>
+             <th>Link</th>
+            <th>Text</th>
          <% else if @idioma.aux==2 %>
              <th>Espanhol - Link</th>
             <th>Espanhol - Texto</th>
@@ -18,7 +18,9 @@
             <th>Texto</th>
         <% end %>
     <% end %>   
-    <th colspan="3"></th>
+          <% if logged_in? %>
+              <th colspan="3"></th>
+              <% end %>
           </tr>
         </thead>
       

@@ -8,11 +8,9 @@
       <table class="table table-responsive table-bordered table-hover">
         <thead>
           <tr>
-            <th>Inglês - Cabecalho</th>
-            <th>Inglês - Mestrado</th>
-            <th>Inglês - Texto1</th>
-            <th>Inglês - Doutorado</th>
-            <th>Inglês - Texto2</th>
+            <th>Title</th>
+            <th>Masters</th>
+            <th>Doctoral</th>
          <% else if @idioma.aux==2 %>
           <h1>Espanhol - Processos Seletivos</h1>
       
@@ -21,9 +19,7 @@
           <tr>
             <th>Espanhol - Cabecalho</th>
             <th>Espanhol - Mestrado</th>
-            <th>Espanhol - Texto1</th>
             <th>Espanhol - Doutorado</th>
-            <th>Espanhol - Texto2</th>
 
          <% else %>
 <h1>Processos Seletivos</h1>
@@ -33,13 +29,12 @@
           <tr>
             <th>Cabecalho</th>
             <th>Mestrado</th>
-            <th>Texto1</th>
             <th>Doutorado</th>
-            <th>Texto2</th>
  
       <% end %>
-            <th colspan="3"></th>
-          </tr>
+          <% if logged_in? %>
+              <th colspan="3"></th>
+              <% end %>
         </thead>
       
 <% end %>
@@ -48,9 +43,7 @@
           <% @processo_seletivos.each do |processo_seletivo| %>
             <tr>
               <td><%= processo_seletivo.cabecalho %></td>
-              <td></td>
               <td><a href=<%= processo_seletivo.texto1 %>><%= processo_seletivo.mestrado %></td>
-              <td></td>
               <td><a href=<%= processo_seletivo.texto2 %>><%= processo_seletivo.doutorado %></td>
           		<% if logged_in? %>
                 <td><%= link_to 'Show', processo_seletivo %></td>
