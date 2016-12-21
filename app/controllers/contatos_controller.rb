@@ -4,7 +4,14 @@ class ContatosController < ApplicationController
   # GET /contatos
   # GET /contatos.json
   def index
-	@contatos = Contato.all
+  if @idioma==1
+	  @contatos = Contato.all
+	else if @idioma==2
+	  @contatos = Contato.all
+	     else
+	      @contatos = Contato.all
+       end
+  end
   end
 
   # GET /contatos/1

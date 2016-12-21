@@ -1,5 +1,5 @@
 <% @aux=Idioma.find(1) %>
-<% @idioma=@aux.aux %>
+<%= @idioma=@aux.aux %>
 <p id="notice"><%= notice %></p>
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
@@ -23,12 +23,19 @@
         <tbody>
           <% @contatos.each do |contato| %>
             <tr>
-              <td><%= contato.texto %></td>
           		<% if logged_in? %>
+              <td><%= contato.texto %><%= contato.id %></td>
                 <td><%= link_to 'Show', contato %></td>
                 <td><%= link_to 'Edit', edit_contato_path(contato) %></td>
                 <td><%= link_to 'Destroy', contato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <% end %>
+             <% else %>
+                 <% if @idioma==1 %>
+                   <td><% if contato.id==2 %><%= contato.texto %><% end %><% end %></td>
+                 <% if @idioma==2 %>
+                   <td><% if contato.id==3 %><%= contato.texto %><% end %><% end %></td>
+                 <% if @idioma==3 %>
+                   <td><% if contato.id==1 %><%= contato.texto %><% end %><% end %></td>
+             <% end %>
             </tr>
           <% end %>
         </tbody>
