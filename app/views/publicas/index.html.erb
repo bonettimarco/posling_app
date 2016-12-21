@@ -18,7 +18,6 @@
           <% if @idioma.aux==1%>
             <tr>
               <th>Title</th>
-              <th>Text</th>
               <% if logged_in? %>
               <th colspan="3"></th>
               <% end %>
@@ -26,7 +25,6 @@
           <% else if @idioma.aux == 2 %> 
             <tr>
               <th>Titulo</th>
-              <th>Texto</th>
               <% if logged_in? %>
               <th colspan="3"></th>
               <% end %>
@@ -34,7 +32,6 @@
           <% else %>
             <tr>
               <th>Titulo</th>
-              <th>Texto</th>
               <% if logged_in? %>
               <th colspan="3"></th>
               <% end %>
@@ -45,7 +42,6 @@
           <tbody>
             <% @publicas.each do |publica| %>
               <tr>
-                <td></td>
                 <td><a href=<%= publica.texto %>><%= publica.titulo %></td>
             		<% if logged_in? %>
                   <td><%= link_to 'Show', publica %></td>

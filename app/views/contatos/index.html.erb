@@ -4,7 +4,7 @@
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
     <% if @idioma==1 %>
-      <h1> Inglês Contatos</h1>
+      <h1>Contacts</h1>
       <% else if @idioma==2 %>
       <h1> Espanhol Contatos</h1>
     <% else %>
@@ -15,8 +15,18 @@
       <table class="table table-responsive table-bordered table-hover">
         <thead>
           <tr>
-            <th>Texto</th>
-            <th colspan="3"></th>
+
+            <% if @idioma==1 %>
+              <th>Text</th>
+              <th colspan="3"></th>
+            <% else if @idioma==2 %>
+              <th>Texto</th>
+              <th colspan="3"></th>
+            <% else %>
+              <th>Texto</th>
+              <th colspan="3"></th>
+      <% end %>
+      <% end %>
           </tr>
         </thead>
       
@@ -24,26 +34,23 @@
           <% @contatos.each do |contato| %>
             <tr>
           		<% if logged_in? %>
-              <td><%= contato.texto %></td>
+                <td><%= contato.texto %></td>
                 <td><%= link_to 'Show', contato %></td>
                 <td><%= link_to 'Edit', edit_contato_path(contato) %></td>
-                <td><%= link_to 'Destroy', contato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
              <% else %>
                  <% if @idioma==1 %>
-                   <td><% if contato.id==4 %><%= contato.texto %><% end %><% end %></td>
+                 <% if contato.id==4 %><td><%= contato.texto %><% end %><% end %></td>
                  <% if @idioma==2 %>
-                   <td><% if contato.id==5 %><%= contato.texto %><% end %><% end %></td>
+                  <% if contato.id==5 %><td><%= contato.texto %><% end %><% end %></td>
                  <% if @idioma==3 %>
-                   <td><% if contato.id==1 %><%= contato.texto %><% end %><% end %></td>
+                   <% if contato.id==1 %><td><%= contato.texto %><% end %><% end %></td>
              <% end %>
+                       <% end %>
             </tr>
-          <% end %>
+
         </tbody>
       </table>
       
       <br>
-      		<% if logged_in? %>
-            <%= link_to 'New Contato', new_contato_path %>
-          <% end %>
     </div>
   </div>  

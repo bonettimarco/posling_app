@@ -1,25 +1,30 @@
-<% @idioma=Idioma.find(1) %>
+<% @aux=Idioma.find(1) %>
+<% @idioma = @aux.aux %>
 <p id="notice"><%= notice %></p>
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
-     <% if @idioma.aux==1 %>
+     <% if @idioma==1 %>
          <h1>Finances</h1>
-         <% else if @idioma.aux==2 %>
+         <% else if @idioma==2 %>
          <h1> Espanhol Finanças</h1>
          <% else %>
          <h1>Finanças</h1>
       <% end %>
       <% end %>
         <table class="table table-responsive table-bordered table-hover">
+        <% if logged_in? %>
           <thead>
             <tr>
-             <% if @idioma.aux==1 %>
+             <% if @idioma==1 %>
+              <th>Idioma</th>
               <th>Title</th>
               <th>Text</th>
-              <% else if @idioma.aux==2 %>
+              <% else if @idioma==2 %>
+              <th>Idioma</th>
               <th>Espanhol - Cabecalho</th>
               <th>Espanhol - Texto</th>
               <% else %>
+              <th>Idioma</th>
               <th>Cabecalho</th>
               <th>Texto</th>
               <% end %>
@@ -29,16 +34,21 @@
             <% end %>
             </tr>
           </thead>
-        
+        <% end %>        
           <tbody>
             <% @financas.each do |financa| %>
               <tr>
+                <% if logged_in? %>
+                <td><%= financa.idioma %></td>
                 <td><%= financa.cabecalho %></td>
                 <td><%= financa.texto %></td>
-        		<% if logged_in? %>
                 <td><%= link_to 'Show', financa %></td>
                 <td><%= link_to 'Edit', edit_financa_path(financa) %></td>
                 <td><%= link_to 'Destroy', financa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% else if @idioma==financa.idioma%>
+                <td><%= financa.cabecalho %></td>
+                <td><%= financa.texto %></td>
+        		<% end %>
         		<% end %>
         	</tr>
             <% end %>

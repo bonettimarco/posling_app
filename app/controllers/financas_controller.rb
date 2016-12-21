@@ -95,6 +95,6 @@ class FinancasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def financa_params
-      params.require(:financa).permit(:cabecalho, :texto)
+      params.require(:financa).permit(:cabecalho, :texto, :idioma)
     end
 end

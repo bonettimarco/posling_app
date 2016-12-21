@@ -3,6 +3,7 @@
 <p id="notice"><%= notice %></p>
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
+
       <% if @idioma==1 %>
         <h1> Line Of Researchs</h1>
         <% else if @idioma==2 %>
@@ -10,14 +11,50 @@
           <% else %>
               <h1>Linhas de pesquisa</h1>
           <% end %>
-        <% end %>
-      
+      <% end %>
+    
       <table class="table table-responsive table-bordered table-hover">
-
         <tbody>
         <% @conta = 1 %>
           <% @linhas.each do |linha| %>
             <tr>
+          <% if logged_in? %>
+              <td><%= linha.idioma %></td>
+              <td><%= linha.texto %><%= @conta %></td>            
+      		<% if(@conta==1) %>
+              <% if linha.idioma==1 %>
+                <td><%= link_to 'Subjects', disciplinasing_url %></td>
+              <% else if linha.idioma==2 %>
+                <td><%= link_to 'Espanhol Disciplinas', disciplinasesp_url %></td>
+              <% else %>                
+                <td><%= link_to 'Disciplinas', disciplinas_url %></td>
+              <% end %>
+              <% end %>
+          <% end %>
+      		<% if @conta==2 %>
+              <% if linha.idioma==1 %>
+                <td><%= link_to 'Subjects', disciplinas2sing_url %></td>
+              <% else if linha.idioma==2 %>
+                <td><%= link_to 'Espanhol Disciplinas', disciplinas2sesp_url %></td>
+              <% else %>
+              <td><%= link_to 'Disciplinas', disciplinas2s_url %></td>
+                <% end %>
+                <%end %>
+      		<% end %>
+      		<% if @conta==3 %>
+              <% if linha.idioma==1 %>
+                <td><%= link_to 'Subjects', disciplinas3sing_url %></td>
+                <% else if linha.idioma==2 %>
+                <td><%= link_to 'Espanhol - Disciplinas', disciplinas3sesp_url %></td>
+              <% else %>
+              <td><%= link_to 'Disciplinas', disciplinas3s_url %></td>
+              <% end %>
+              <% end %>
+      		<% end %>
+              <td><%= link_to 'Show', linha %></td>
+              <td><%= link_to 'Edit', edit_linha_path(linha) %></td>
+              <td><%= link_to 'Destroy', linha, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% else if @idioma==linha.idioma %>
               <td><%= linha.texto %></td>
       		<% if(@conta==1) %>
               <% if linha.idioma==1 %>
@@ -30,7 +67,7 @@
           		<% end %>
           <% end %>
       		<% if @conta==2 %>
-              <% if linha.==1 %>
+              <% if linha.idioma==1 %>
                 <td><%= link_to 'Subjects', disciplinas2sing_url %></td>
               <% else if linha.idioma==2 %>
                 <td><%= link_to 'Espanhol Disciplinas', disciplinas2sesp_url %></td>
@@ -49,14 +86,15 @@
               <% end %>
             <% end %>
       		<% end %>
-      		<% @conta = @conta+1 %>
-      		<% if logged_in? %>
-              <td><%= link_to 'Show', linha %></td>
-              <td><%= link_to 'Edit', edit_linha_path(linha) %></td>
-              <td><%= link_to 'Destroy', linha, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        	</tr>
+          <% end %>
+
+          <% end %>
+      		<% if @conta<3 %>
+      		  <% @conta=@conta+1 %>
+      		<% else %>
+      		  <% @conta=1 %>
       		<% end %>
-            </tr>
-          <% @conta = 1 %>
           <% end %>
         </tbody>
       </table>

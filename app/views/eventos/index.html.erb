@@ -17,23 +17,22 @@
         <table class="table table-responsive table-bordered table-hover">
           <thead>
             <tr>
-              
+  <% if logged_in? %>
      <% if @idioma==1 %>
-              <th>Inglês = 1</th>
+              <th>Inglês=1/ Espanhol=2/ Port = 3/</th>
               <th>Link</th>
               <th>Text</th>
            <% else if @idioma==2 %>
-              <th>Espanhol = 2</th>
+              <th>Inglês=1/ Espanhol=2/ Port = 3/</th>
               <th>Espanhol - Link</th>
               <th>Espanhol - Texto</th>
            <% else %>
-              <th>Português = 3</th>
+              <th>Inglês=1/ Espanhol=2/ Port = 3/</th>
               <th>Link</th>
               <th>Texto</th>
         <% end %>
       
       <% end %>
-              <% if logged_in? %>
               <th colspan="3"></th>
               <% end %>
             </tr>
@@ -42,13 +41,17 @@
           <tbody>
             <% @eventos.each do |evento| %>
               <tr>
-            		<% if logged_in? %>
-                <td>evento.idioma</td>
+            	<% if logged_in? %>
+                <td><%= evento.idioma %></td>
                 <td><a href=<%= evento.link %>><%= evento.titulo %></td>
                 <td><%= evento.texto %></td>
                   <td><%= link_to 'Show', evento %></td>
                   <td><%= link_to 'Edit', edit_evento_path(evento) %></td>
                   <td><%= link_to 'Destroy', evento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% else if evento.idioma==@idioma%>
+                <td><a href=<%= evento.link %>><%= evento.titulo %></td>
+                <td><%= evento.texto %></td>
+                <% end %>
                 <% end %>
               </tr>
             <% end %>
