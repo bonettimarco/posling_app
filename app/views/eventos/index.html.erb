@@ -1,10 +1,11 @@
-<% @idioma=Idioma.find(1) %>
+<% @aux=Idioma.find(1) %>
+<% @idioma=@aux.aux %>
 <p id="notice"><%= notice %></p>
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
-     <% if @idioma.aux==1 %>
+     <% if @idioma==1 %>
           <h1>Events</h1>
-         <% else if @idioma.aux==2 %>
+         <% else if @idioma==2 %>
             <h1>Espanhol -Eventos</h1>
          <% else %>
               <h1>Eventos</h1>
@@ -17,16 +18,16 @@
           <thead>
             <tr>
               
-     <% if @idioma.aux==1 %>
-              <th>Title</th>
+     <% if @idioma==1 %>
+              <th>Inglês = 1</th>
               <th>Link</th>
               <th>Text</th>
-           <% else if @idioma.aux==2 %>
-              <th>Espanhol - Titulo</th>
+           <% else if @idioma==2 %>
+              <th>Espanhol = 2</th>
               <th>Espanhol - Link</th>
               <th>Espanhol - Texto</th>
            <% else %>
-              <th>Titulo</th>
+              <th>Português = 3</th>
               <th>Link</th>
               <th>Texto</th>
         <% end %>
@@ -41,10 +42,10 @@
           <tbody>
             <% @eventos.each do |evento| %>
               <tr>
-                <td></td>
+            		<% if logged_in? %>
+                <td>evento.idioma</td>
                 <td><a href=<%= evento.link %>><%= evento.titulo %></td>
                 <td><%= evento.texto %></td>
-            		<% if logged_in? %>
                   <td><%= link_to 'Show', evento %></td>
                   <td><%= link_to 'Edit', edit_evento_path(evento) %></td>
                   <td><%= link_to 'Destroy', evento, method: :delete, data: { confirm: 'Are you sure?' } %></td>

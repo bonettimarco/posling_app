@@ -95,6 +95,6 @@ class FinaisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def finai_params
-      params.require(:finai).permit(:texto)
+      params.require(:finai).permit(:texto, :idioma)
     end
 end

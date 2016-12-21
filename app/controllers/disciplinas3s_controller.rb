@@ -96,6 +96,6 @@ class Disciplinas3sController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def disciplinas3_params
-      params.require(:disciplinas3).permit(:texto)
+      params.require(:disciplinas3).permit(:texto, :idioma)
     end
 end

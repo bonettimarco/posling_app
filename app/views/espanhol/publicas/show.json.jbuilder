@@ -1,1 +1,0 @@
-json.partial! "publicas/publica", publica: @publica

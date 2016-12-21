@@ -10,7 +10,7 @@ class DisciplinasController < ApplicationController
   # GET /disciplinas/1
   # GET /disciplinas/1.json
   def show
-	if !logged_in
+	if !logged_in?
 		mensagem()
 		redirect_to home_url
 	end
@@ -18,17 +18,17 @@ class DisciplinasController < ApplicationController
 
   # GET /disciplinas/new
   def new
-    if logged_in
-		@disciplina = Disciplina.new
-	else	
-		mensagem()
-		redirect_to home_url
-	end
+    if logged_in?
+		  @disciplina = Disciplina.new
+	  else	
+		  mensagem()
+		  redirect_to home_url
+	  end
   end
 
   # GET /disciplinas/1/edit
   def edit
-	if !logged_in
+	if !logged_in?
 		mensagem()
 		redirect_to home_url
 	end
@@ -37,7 +37,7 @@ class DisciplinasController < ApplicationController
   # POST /disciplinas
   # POST /disciplinas.json
   def create
-	if logged_in
+	if logged_in?
 		@disciplina = Disciplina.new(disciplina_params)
 
     respond_to do |format|
@@ -58,7 +58,7 @@ class DisciplinasController < ApplicationController
   # PATCH/PUT /disciplinas/1
   # PATCH/PUT /disciplinas/1.json
   def update
-	if logged_in
+	if logged_in?
 		respond_to do |format|
       if @disciplina.update(disciplina_params)
         format.html { redirect_to @disciplina, notice: 'Disciplina was successfully updated.' }
@@ -96,6 +96,6 @@ class DisciplinasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def disciplina_params
-      params.require(:disciplina).permit(:texto)
+      params.require(:disciplina).permit(:texto, :idioma)
     end
 end

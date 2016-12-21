@@ -96,6 +96,6 @@ class LinhasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def linha_params
-      params.require(:linha).permit(:texto)
+      params.require(:linha).permit(:texto, :idioma)
     end
 end

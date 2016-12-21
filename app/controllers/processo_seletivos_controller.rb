@@ -96,6 +96,6 @@ class ProcessoSeletivosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def processo_seletivo_params
-      params.require(:processo_seletivo).permit(:cabecalho, :mestrado, :texto1, :doutorado, :texto2)
+      params.require(:processo_seletivo).permit(:cabecalho, :mestrado, :texto1, :doutorado, :texto2, :idioma)
     end
 end

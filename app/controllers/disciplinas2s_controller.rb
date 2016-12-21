@@ -95,6 +95,6 @@ class Disciplinas2sController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def disciplinas2_params
-      params.require(:disciplinas2).permit(:texto)
+      params.require(:disciplinas2).permit(:texto, :idioma)
     end
 end

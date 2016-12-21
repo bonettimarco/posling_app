@@ -1,1 +1,0 @@
-json.partial! "disciplinas2s/disciplinas2", disciplinas2: @disciplinas2
