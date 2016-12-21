@@ -1,0 +1,67 @@
+<% @idioma=Idioma.find(1) %>
+<p id="notice"><%= notice %></p>
+<div class="container-fluid cont-estatico">
+    <div class="container-fluid ">
+      <% if @idioma.aux==1 %>
+        <h1> Line Of Researchs</h1>
+        <% else if @idioma.aux==2 %>
+          <h1>Espanhol - Linhas de pesquisa</h1>
+          <% else %>
+              <h1>Linhas de pesquisa</h1>
+          <% end %>
+        <% end %>
+      
+      <table class="table table-responsive table-bordered table-hover">
+
+        <tbody>
+        <% @conta = 1 %>
+          <% @linhas.each do |linha| %>
+            <tr>
+              <td><%= linha.texto %></td>
+      		<% if(@conta==1) %>
+              <% if @idioma.aux==1 %>
+                <td><%= link_to 'Subjects', disciplinasing_url %></td>
+              <% else if @idioma.aux==2 %>
+                <td><%= link_to 'Espanhol Disciplinas', disciplinasesp_url %></td>
+              <% else %>                
+                <td><%= link_to 'Disciplinas', disciplinas_url %></td>
+          		<% end %>
+          		<% end %>
+          <% end %>
+      		<% if @conta==2 %>
+              <% if @idioma.aux==1 %>
+                <td><%= link_to 'Subjects', disciplinas2sing_url %></td>
+              <% else if @idioma.aux==2 %>
+                <td><%= link_to 'Espanhol Disciplinas', disciplinas2sesp_url %></td>
+              <% else %>
+              <td><%= link_to 'Disciplinas', disciplinas2s_url %></td>
+                <% end %>
+                <%end %>
+      		<% end %>
+      		<% if @conta==3 %>
+              <% if @idioma.aux==1 %>
+                <td><%= link_to 'Subjects', disciplinas3sing_url %></td>
+                <% else if @idioma.aux==2 %>
+                <td><%= link_to 'Espanhol - Disciplinas', disciplinas3sesp_url %></td>
+              <% else %>
+              <td><%= link_to 'Disciplinas', disciplinas3s_url %></td>
+              <% end %>
+            <% end %>
+      		<% end %>
+      		<% @conta = @conta+1 %>
+      		<% if logged_in? %>
+              <td><%= link_to 'Edit', edit_linha_path(linha) %></td>
+              <td><%= link_to 'Destroy', linha, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      		<% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      
+      <br>
+      
+      <% if logged_in? %>
+      <%= link_to 'New Linha', new_linha_path %>
+      <% end %>
+    </div>
+</div>  

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @publica.titulo %>
+</p>
+
+<p>
+  <strong>Texto:</strong>
+  <%= @publica.texto %>
+</p>
+
+<%= link_to 'Edit', edit_publica_path(@publica) %> |
+<%= link_to 'Back', publicas_path %>

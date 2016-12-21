@@ -1,0 +1,65 @@
+<% @idioma=Idioma.find(1) %>
+<p id="notice"><%= notice %></p>
+<div class="container-fluid cont-estatico">
+    <div class="container-fluid ">
+        
+     <% if @idioma.aux==1 %>
+            <h1>Publications</h1>
+         <% else if @idioma.aux==2 %>
+            <h1>Espanhol - Publicações</h1>
+         <% else %>
+            <h1>Publicações</h1>
+      <% end %>
+      
+<% end %>
+        
+        <table class="table table-responsive table-bordered table-hover">
+          <thead>
+          <% if @idioma.aux==1%>
+            <tr>
+              <th>Title</th>
+              <th>Text</th>
+              <% if logged_in? %>
+              <th colspan="3"></th>
+              <% end %>
+            </tr>
+          <% else if @idioma.aux == 2 %> 
+            <tr>
+              <th>Titulo</th>
+              <th>Texto</th>
+              <% if logged_in? %>
+              <th colspan="3"></th>
+              <% end %>
+            </tr>
+          <% else %>
+            <tr>
+              <th>Titulo</th>
+              <th>Texto</th>
+              <% if logged_in? %>
+              <th colspan="3"></th>
+              <% end %>
+            </tr>
+          </thead>
+          <% end %>
+          <% end %> 
+          <tbody>
+            <% @publicas.each do |publica| %>
+              <tr>
+                <td></td>
+                <td><a href=<%= publica.texto %>><%= publica.titulo %></td>
+            		<% if logged_in? %>
+                  <td><%= link_to 'Show', publica %></td>
+                  <td><%= link_to 'Edit', edit_publica_path(publica) %></td>
+                  <td><%= link_to 'Destroy', publica, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        
+        <br>
+        		<% if logged_in? %>
+              <%= link_to 'New Publica', new_publica_path %>
+            <% end %>
+    </div>
+</div>      

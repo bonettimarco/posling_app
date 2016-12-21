@@ -1,0 +1,65 @@
+<% @idioma=Idioma.find(1) %>
+<p id="notice"><%= notice %></p>
+<div class="container-fluid cont-estatico">
+    <div class="container-fluid ">
+      <% if @idioma.aux==1 %>
+        <h1>Final Results</h1>
+        <% else if @idioma.aux==2 %>
+        <h1>Espanho - Trabalhos finais</h1>
+              <% else %>
+                <h1>Trabalhos Finais</h1>
+
+        <% end %>
+      <% end %>
+
+
+        <table class="table table-responsive table-bordered table-hover">
+          <thead>
+            <tr>
+      <% if @idioma.aux==1 %>
+                  <th>Text</th>
+        <% else if @idioma.aux==2 %>
+                  <th> Espanhol - Texto </th>   
+              <% else %>
+                  <th>Texto</th>
+        <% end %>
+      <% end %>
+              <th>Link</th>
+              <% if logged_in? %>
+              <th colspan="3"></th>
+              <% end %>
+            </tr>
+          </thead>
+        
+          <tbody>
+            <% @finais.each do |finai| %>
+              <tr>
+                <td><%= finai.texto %></td><br>
+      <% if @idioma=='1' %>
+            <td>Ingles - Para consultas, clique <a href = 'http://www.bdtd.ndc.uff.br'>here.</a></td>
+        <% else if @idioma=='2' %>
+            <td>Espanhol - Para consultas, clique <a href = 'http://www.bdtd.ndc.uff.br'>aqui em espanhol</a></td>
+              <% else %>
+        		<td>Para consultas, clique <a href = 'http://www.bdtd.ndc.uff.br'>aqui.</a>
+        <% end %>
+      <% end %>
+        		<% if logged_in? %>
+                <td><%= link_to 'Show', finai %></td>
+                <td><%= link_to 'Edit', edit_finai_path(finai) %></td>
+                <td><%= link_to 'Destroy', finai, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        		<% end %>
+        	 </tr>
+            <% end %>
+          </tbody>
+        </table>
+        
+        <br>
+        
+        		<% if logged_in? %>
+        		<%= link_to 'Incluir novos Trabalhos Finais', new_finai_path %>
+        		<% end %>
+    </div>
+  </div>  
+
+
+

@@ -1,0 +1,41 @@
+<%= form_for(@egresso) do |f| %>
+  <% if @egresso.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@egresso.errors.count, "error") %> prohibited this egresso from being saved:</h2>
+
+      <ul>
+      <% @egresso.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ano %><br>
+    <%= f.number_field :ano %>
+  </div>
+  <div class="field">
+    <%= f.label :nivel %><br>
+    <%= f.text_area :nivel %>
+  </div>
+  <div class="field">
+    <%= f.label :nome %><br>
+    <%= f.text_area :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :lattes %><br>
+    <%= f.text_area :lattes %>
+  </div>
+  <div class="field">
+    <%= f.label :orientador %><br>
+    <%= f.text_area :orientador %>
+  </div>
+  <div class="field">
+    <%= f.label :defesa %><br>
+    <%= f.date_select :defesa %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

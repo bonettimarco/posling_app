@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161218161526) do
+ActiveRecord::Schema.define(version: 20161221130516) do
 
   create_table "Idioma", primary_key: "idioma", force: :cascade do |t|
   end
@@ -39,18 +39,21 @@ ActiveRecord::Schema.define(version: 20161218161526) do
     t.string   "texto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "idioma"
   end
 
   create_table "disciplinas2s", force: :cascade do |t|
     t.string   "texto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "idioma"
   end
 
   create_table "disciplinas3s", force: :cascade do |t|
     t.string   "texto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "idioma"
   end
 
   create_table "docentes", force: :cascade do |t|
@@ -78,12 +81,14 @@ ActiveRecord::Schema.define(version: 20161218161526) do
     t.text     "texto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "idioma"
   end
 
   create_table "finais", force: :cascade do |t|
     t.string   "texto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "idioma"
   end
 
   create_table "financas", force: :cascade do |t|
@@ -91,12 +96,14 @@ ActiveRecord::Schema.define(version: 20161218161526) do
     t.string   "texto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "idioma"
   end
 
   create_table "grupos", force: :cascade do |t|
     t.string   "texto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "idioma"
   end
 
   create_table "idiomas", force: :cascade do |t|
@@ -109,6 +116,7 @@ ActiveRecord::Schema.define(version: 20161218161526) do
     t.string   "texto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "idioma"
   end
 
   create_table "links", force: :cascade do |t|
@@ -126,6 +134,7 @@ ActiveRecord::Schema.define(version: 20161218161526) do
     t.text     "texto2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "idioma"
   end
 
   create_table "publicas", force: :cascade do |t|
