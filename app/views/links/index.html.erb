@@ -5,7 +5,8 @@
       <h1>Links</h1>
       
       <table class="table table-responsive table-bordered table-hover">
-        <thead>
+<% if logged_in? %>
+<thead>
           <tr>
      <% if @idioma.aux==1 %>
              <th>Link</th>
@@ -23,19 +24,22 @@
               <% end %>
           </tr>
         </thead>
-      
+<% end %>      
         <tbody>
           <% @links.each do |link| %>
-            <tr>
-              <td></td>
-              <td><a href=<%= link.texto %>><%= link.link %></a></td>
-          		<% if logged_in? %>
+<% if logged_in? %>
+<tr>
+              <td><%= link.link %></td>
+              <td><%= link.texto %></td>
                 <td><%= link_to 'Show', link %></td>
                 <td><%= link_to 'Edit', edit_link_path(link) %></td>
                 <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              <% end %>
             </tr>
-          <% end %>
+
+<% else %>
+<tr><a href=<%= link.texto %>><%= link.link %></a></tr>
+<% end %>
+<% end %>
         </tbody>
       </table>
       

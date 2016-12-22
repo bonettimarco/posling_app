@@ -1,53 +1,76 @@
-<% @idioma=Idioma.find(1) %>
+<% @aux=Idioma.find(1) %>
+<% @idioma=@aux.aux %>
 <p id="notice"><%= notice %></p>
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
-<% if @idioma.aux==1 %>
+     
+<% if logged_in? %>
+ <h1>Lista de todas as Disciplinas</h1>
+<% else %>
+<% if @idioma==1 %>
  <h1>Inglês - Lista das Disciplinas da Linha 3</h1>
-      
-      <table class="table table-responsive table-bordered table-hover">
-        <thead>
-          <tr>
-            <th>Inglês - Text</th>
-
-<% else if @idioma.aux==2 %>
+<% else if @idioma==2 %>
  <h1>Espanhol - Lista das Disciplinas da Linha 3</h1>
-      
-      <table class="table table-responsive table-bordered table-hover">
-        <thead>
-          <tr>
-            <th>Espanhol - Texto</th>
 <% else %>
  <h1>Lista das Disciplinas da Linha 3</h1>
-      
-      <table class="table table-responsive table-bordered table-hover">
+<% end %>
+<% end %>
+<% end %>
+ <table class="table table-responsive table-bordered table-hover">
+
+<% if logged_in? %>
         <thead>
           <tr>
+            <th>Inglês1/ Espanhol2/ Português3/</th>
             <th>Texto</th>
-<% end %>
-
-<% end %>
-              <th colspan="3"></th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+      
+        <tbody>
+            <tr>
+          <% @disciplinas.each do |disciplina| %>
+           <td><%= disciplina.idioma %></td>
+           <td><%= disciplina.texto %></td>
+              <td><%= link_to 'Show', disciplina %></td>
+              <td><%= link_to 'Edit', edit_disciplina_path(disciplina) %></td>
+              <td><%= link_to 'Destroy', disciplina, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
-          </thead>
-        
-          <tbody>
-            <% @disciplinas3s.each do |disciplinas3| %>
-              <tr>
+          <% end %>
+            <tr>
+                <% @disciplinas2s.each do |disciplinas2| %>
+                <td><%= disciplinas2.idioma %></td>
+                <td><%= disciplinas2.texto %></td>
+                <td><%= link_to 'Show', disciplinas2 %></td>
+                <td><%= link_to 'Edit', edit_disciplinas2_path(disciplinas2) %></td>
+                <td><%= link_to 'Destroy', disciplinas2, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+        		<% end %>
+            <tr>
+                <% @disciplinas3s.each do |disciplinas3| %>
+                <td><%= disciplinas3.idioma %></td>
                 <td><%= disciplinas3.texto %></td>
-        		<% if logged_in? %>
                 <td><%= link_to 'Show', disciplinas3 %></td>
                 <td><%= link_to 'Edit', edit_disciplinas3_path(disciplinas3) %></td>
                 <td><%= link_to 'Destroy', disciplinas3, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        		<% end %>
         	  </tr>
+        		<% end %>
+        	  <% else %>
+                <tbody>
+                <tr>
+                  <% @disciplinas3s.each do |disciplina| %>
+                  <% if @idioma==disciplina.idioma %>
+                      <td><%= disciplina.texto %></td>
+                  <% end %>
+                  <% end %>
+                </tr>
             <% end %>
-          </tbody>
-        </table>
-        
-        <br>
-        <% if logged_in? %>
-        <%= link_to 'New Disciplinas3', new_disciplinas3_path %>
-        <% end %>
+            </tbody>
+      </table>
+      
+      <br>
+      	<% if logged_in? %>
+      		<%= link_to 'New Disciplina', new_disciplina_path %>
+      	<% end %>
     </div>
-  </div>  
+</div>

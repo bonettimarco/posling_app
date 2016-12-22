@@ -1,10 +1,11 @@
-<% @idioma=Idioma.find(1) %>
+<% @aux=Idioma.find(1) %>
+<% @idioma = @aux.aux %>
 <p id="notice"><%= notice %></p>
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
-     <% if @idioma.aux==1 %>
+     <% if @idioma==1 %>
             <h1>Teacher Area</h1>
-         <% else if @idioma.aux==2 %>
+         <% else if @idioma==2 %>
             <h1>Espanhol - Docentes</h1>
          <% else %>
           <h1>Docentes</h1>
@@ -13,43 +14,29 @@
 <% end %>
 
 <table class="table table-responsive table-bordered table-hover">
-  <thead>
-     <% if @idioma.aux==1 %>
-    <tr>
-      <th>Line</th>
-      <th>Name</th>
-
-         <% else if @idioma.aux==1 %>
-    <tr>
-      <th>Espanhol - Linha</th>
-      <th>Espanhol - Nome</th>
-
-         <% else %>
+<% if logged_in? %>
+<thead>
     <tr>
       <th>Linha</th>
       <th>Nome</th>
-
-      <% end %>
-      
-<% end %>
-      <% if logged_in? %>
       <th colspan="3"></th>
-      <% end %>
     </tr>
   </thead>
-
+<% end %>
   <tbody>
     <% @docentes.each do |docente| %>
       <tr>
+<% if logged_in? %>
         <td><%= docente.linha %></td>
         <td><a href=<%= docente.link %>><%= docente.nome %></td>
-        <% if logged_in? %>
           <td><%= link_to 'Show', docente %></td>
           <td><%= link_to 'Edit', edit_docente_path(docente) %></td>
           <td><%= link_to 'Destroy', docente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+<% else %>
+        <td><a href=<%= docente.link %>><%= docente.nome %></td>
+<% end %>
       </tr>
-    <% end %>
+<% end %>
   </tbody>
 </table>
 

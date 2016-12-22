@@ -4,13 +4,15 @@ class Disciplinas2sController < ApplicationController
   # GET /disciplinas2s
   # GET /disciplinas2s.json
   def index
+    @disciplinas = Disciplina.all
     @disciplinas2s = Disciplinas2.all
+    @disciplinas3s = Disciplinas3.all
   end
 
   # GET /disciplinas2s/1
   # GET /disciplinas2s/1.json
   def show
-  if !logged_in
+  if !logged_in?
 	mensagem()
 	redirect_to home_url
   end
@@ -18,7 +20,7 @@ class Disciplinas2sController < ApplicationController
 
   # GET /disciplinas2s/new
   def new
-	if logged_in
+	if logged_in?
 	    @disciplinas2 = Disciplinas2.new
 	else
 		mensagem()
@@ -28,7 +30,7 @@ class Disciplinas2sController < ApplicationController
 
   # GET /disciplinas2s/1/edit
   def edit
-	if !logged_in
+	if !logged_in?
 		mensagem()
 		redirect_to home_url
 	end
@@ -37,7 +39,7 @@ class Disciplinas2sController < ApplicationController
   # POST /disciplinas2s
   # POST /disciplinas2s.json
   def create
-	if logged_in
+	if logged_in?
 		@disciplinas2 = Disciplinas2.new(disciplinas2_params)
     respond_to do |format|
       if @disciplinas2.save
@@ -57,7 +59,7 @@ class Disciplinas2sController < ApplicationController
   # PATCH/PUT /disciplinas2s/1
   # PATCH/PUT /disciplinas2s/1.json
   def update
-	if logged_in
+	if logged_in?
 		respond_to do |format|
       if @disciplinas2.update(disciplinas2_params)
         format.html { redirect_to @disciplinas2, notice: 'Disciplinas2 was successfully updated.' }

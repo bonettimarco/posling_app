@@ -5,38 +5,23 @@
     <div class="container-fluid ">
            <% if @idioma==1 %>
   <h1>Selection Process</h1>
-      
-      <table class="table table-responsive table-bordered table-hover">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Masters</th>
-            <th>Doctoral</th>
          <% else if @idioma==2 %>
           <h1>Espanhol - Processos Seletivos</h1>
-      
-      <table class="table table-responsive table-bordered table-hover">
-        <thead>
-          <tr>
-            <th>Espanhol - Cabecalho</th>
-            <th>Espanhol - Mestrado</th>
-            <th>Espanhol - Doutorado</th>
-
          <% else %>
 <h1>Processos Seletivos</h1>
+      <% end %>
       
       <table class="table table-responsive table-bordered table-hover">
+          <% if logged_in? %>
         <thead>
           <tr>
             <th>Cabecalho</th>
             <th>Mestrado</th>
             <th>Doutorado</th>
  
-      <% end %>
-          <% if logged_in? %>
               <th colspan="3"></th>
-              <% end %>
         </thead>
+              <% end %>
       
 <% end %>
      

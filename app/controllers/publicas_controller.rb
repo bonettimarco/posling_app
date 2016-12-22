@@ -98,6 +98,6 @@ class PublicasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publica_params
-      params.require(:publica).permit(:titulo, :texto)
+      params.require(:publica).permit(:titulo, :texto, :idioma)
     end
 end

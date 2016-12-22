@@ -5,8 +5,10 @@ class DisciplinasController < ApplicationController
   # GET /disciplinas.json
   def index
     @disciplinas = Disciplina.all
-  end
-
+    @disciplinas2s = Disciplinas2.all
+    @disciplinas3s = Disciplinas3.all
+  end  
+    
   # GET /disciplinas/1
   # GET /disciplinas/1.json
   def show
