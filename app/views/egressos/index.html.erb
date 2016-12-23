@@ -3,18 +3,26 @@
 <p id="notice"><%= notice %></p>
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
-        <h1>Lista dos Egressos</h1>
+          <% if @idioma==1%> 
+          	 <h1>Egress</h1>
+          <% else if @idioma==2%>
+          	 <h1>Graduados</h1>
+          <% else %>
+          	 <h1>Egressos</h1> 
+          <% end %>
+          <% end %>
+
         
         <table class="table table-responsive table-bordered table-hover">
           <thead>
             <tr>
           <% if @idioma==1 %>
-              <th>Inglês Ano</th>
-              <th>Inglês Nivel</th>
-              <th>Inglês Nome</th>
+              <th>Year</th>
+              <th>Level</th>
+              <th>Name</th>
               <th>Lattes</th>
-              <th>Inglês Orientador</th>
-              <th>Inglês Defesa</th>
+              <th>Advisor</th>
+              <th>Defese</th>
           <% else if @idioma==2 %>
               <th>Espanhol Ano</th>
               <th>Espanhol Nivel</th>

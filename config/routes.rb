@@ -21,9 +21,15 @@ Rails.application.routes.draw do
   resources :financas
   resources :dados
   
+#Links das funções de troca de língua
+root 'paginas_estaticas#portugues_home'
+get 'homepor' => 'paginas_estaticas#home'
+get 'homeesp' => 'espanhol#home'
+get 'homeing' => 'ingles#home'
+get 'portugues_home' => 'paginas_estaticas#portugues_home' 
+get 'ingles_home' => 'ingles#ingles_home'
+get 'espanhol_home' => 'espanhol#espanhol_home'
 #Links das paginas em português  
-root 'paginas_estaticas#home'
-get 'home' => 'paginas_estaticas#home'
 get 'calendarioematricula' => 'paginas_estaticas#calendarioematricula'
 get 'editais' => 'paginas_estaticas#editais'
 get 'estruturacurricular' => 'paginas_estaticas#estruturacurricular'
@@ -38,12 +44,7 @@ get 'egress' => 'paginas_estaticas#egress'
 get    '/login',   to: 'sessions#new'
 post   '/login',   to: 'sessions#create'
 get 'logout'  => 'sessions#destroy'
-#Links das funções de troca de língua
-get 'ingles' => 'ingles#set_ingles'
-get 'espanhol' => 'espanhol#set_espanhol'
-get 'portugues' => 'paginas_estaticas#set_portugues'
 #Links das páginas estáticas em espanhol
-get 'homeesp' => 'espanhol#home'
 get 'calendarioematriculaesp' => 'espanhol#calendarioematricula'
 get 'manualdoalunoesp' => 'espanhol#manualdoaluno'
 get 'quemsomosesp' => 'espanhol#quemsomos'
@@ -54,7 +55,6 @@ get 'legislacaoesp' => 'espanhol#legislacao'
 get 'formulariosesp' => 'espanhol#formularios'
 get 'quadrodehorariosesp' => 'espanhol#quadrodehorarios'
 #Funções de chamada das páginas estáticas
-get 'espanhol_home' => 'espanhol#espanhol_home'
 get 'espanhol_calendario' => 'espanhol#espanhol_calendario'
 get 'espanhol_manual' => 'espanhol#espanhol_manual'
 get 'espanhol_quem' => 'espanhol#espanhol_quem'
@@ -84,9 +84,6 @@ get 'disciplinas3sesp' => 'espanhol#espanhol_disciplinas3s'
 get 'espanhol_contato' => 'espanhol#espanhol_contato'
 
 #Links das páginas estáticas em inglês
-get 'ingles_home' => 'ingles#ingles_home'
-get 'homeing' => 'ingles#home'
-get 'ingles' => 'ingles#ingles'
 get 'calendarioematriculaing' => 'ingles#calendarioematricula'
 get 'egressing' => 'ingles#egress'
 get 'manualdoalunoing' => 'ingles#manualdoaluno'
@@ -113,7 +110,6 @@ get 'disciplinas2sing' => 'ingles#ingles_disciplinas2s'
 get 'disciplinas3sing' => 'ingles#ingles_disciplinas3s'
 get 'ingles_contato' => 'ingles#ingles_contato'
 #Funções de chamada das páginas estáticas em inglês
-get 'ingles_home' => 'ingles#ingles_home'
 get 'ingles_calendario' => 'ingles#ingles_calendario'
 get 'ingles_manual' => 'ingles#ingles_manual'
 get 'ingles_quem' => 'ingles#ingles_quem'
@@ -125,7 +121,6 @@ get 'ingles_formulario' => 'ingles#ingles_formulario'
 get 'ingles_quadro' => 'ingles#ingles_quadro'
 get 'ingles_egre' => 'ingles#ingles_egre'
 
-get 'portugues_home' => 'paginas_estaticas#portugues_home'
 get 'dout2030' => 'egressos#dout2030'
 get 'dout2029' => 'egressos#dout2029'
 get 'dout2028' => 'egressos#dout2028'

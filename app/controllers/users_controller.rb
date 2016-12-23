@@ -4,7 +4,11 @@ class UsersController < ApplicationController
   end
 
   def new
+    if !logged_in?
+      redirect_to portugues_home_url
+    else
     @user = User.new
+    end
   end
   
   def edit

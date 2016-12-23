@@ -3,8 +3,8 @@ module SessionsHelper
   # funções que determinam língua
 	
 	def ingles()
-		@idioma=Idioma.find(1)
-		@idioma.aux = 1
+	    @idioma=Idioma.find(1)
+		@idioma.aux=1
 		@idioma.save
 	end
 	
@@ -23,6 +23,7 @@ module SessionsHelper
 	# funções que chamam páginas estáticas em inglês
 	
 	def ingles_home
+		troca(1)
 		ingles()
 		redirect_to homeing_path
 	end
@@ -81,6 +82,7 @@ module SessionsHelper
 	# funções que chamam páginas estáticas em espanhol
 	
 	def espanhol_home
+		troca(2)
 		espanhol()
 		redirect_to homeesp_path
 	end
@@ -136,10 +138,29 @@ module SessionsHelper
 	end
 	
 #outras funções
+	def troca(arg)
+	if !logged_in?
+		numero=Visitante.count
+		visitante=Visitante.new
+		visitante.idioma=arg
+		if numero>=100
+			for i in ( 3..100 )
+				apaga=Visitante.find(i)
+				apaga.delete
+			end
+			visitante.id=3
+		else 
+			visitante.id=numero+1
+		end
+		visitante.save
+	    session[:visitante_id] = visitante.id
+		end
+	end
 
 	def portugues_home
+		troca(3)
 		portugues()
-		redirect_to home_path
+		redirect_to homepor_path
 	end
 
 	def salve()
@@ -290,7 +311,83 @@ module SessionsHelper
 		espanhol()
 		redirect_to financas_url
 	end
+# Portugues funçoes de chamada das dinâmicas
+
+	def portugues_colaboradores()
+		portugues()
+		redirect_to colaboradores_url
+	end
 	
+	def portugues_contato()
+		portugues()
+		redirect_to contatos_url
+	end
+
+	def portugues_finais()
+		portugues()
+		redirect_to finais_url
+	end
+	
+	def portugues_grupos()
+		portugues()
+		redirect_to grupos_url
+	end
+	
+	def portugues_linhas()
+		portugues()
+		redirect_to linhas_url
+	end
+	
+	def portugues_financas()
+		portugues()
+		redirect_to financas_url
+	end
+	
+	def portugues_links()
+		portugues()
+		redirect_to links_url
+	end
+	
+	def portugues_publicas()
+			portugues()
+			redirect_to publicas_url
+	end
+	
+	def portugues_eventos()
+			portugues()
+			redirect_to eventos_url
+	end
+
+	
+	def portugues_seletivos()
+		portugues()
+		redirect_to processo_seletivos_url
+	end
+	
+	def portugues_docentes()
+		portugues()
+		redirect_to docentes_url
+	end
+	
+		
+	def portugues_disciplinas()
+		portugues()
+		redirect_to disciplinas_url
+	end
+
+	def portugues_disciplinas2s()
+		portugues()
+		redirect_to disciplinas2s_url
+	end
+	
+	def portugues_disciplinas3s()
+		portugues()
+		redirect_to disciplinas3s_url
+	end
+	
+
+
+#Demais funções
   def log_in(user)
     session[:user_id] = user.id
   end
@@ -300,7 +397,8 @@ module SessionsHelper
   end
   
   def logged_in?
-    !current_user.nil?
+  	@user = User.find_by(id: session[:user_id])
+    return !current_user.nil? && @user.admin==true 
   end
   
   def log_out

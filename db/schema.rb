@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161221130516) do
+ActiveRecord::Schema.define(version: 20161223134251) do
 
   create_table "Idioma", primary_key: "idioma", force: :cascade do |t|
   end
@@ -153,6 +153,12 @@ ActiveRecord::Schema.define(version: 20161221130516) do
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
     t.boolean  "admin"
+  end
+
+  create_table "visitantes", force: :cascade do |t|
+    t.integer  "idioma"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

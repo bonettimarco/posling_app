@@ -4,6 +4,10 @@ class PublicasController < ApplicationController
   # GET /publicas
   # GET /publicas.json
   def index
+    @current_visitante= Visitante.find_by(id: session[:visitante_id])
+    @troca=Idioma.find(1)
+    @troca.aux=@current_visitante.idioma
+    @troca.save
     @publicas = Publica.all
   end
 
