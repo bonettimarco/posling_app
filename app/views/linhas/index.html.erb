@@ -58,9 +58,9 @@
               <td><%= linha.texto %></td>
       		<% if(@conta==1) %>
               <% if linha.idioma==1 %>
-                <td><%= link_to 'Subjects', disciplinasing_url %></td>
+                <td><%= link_to 'Subjects', espanhol_disciplinas_url %></td>
               <% else if linha.idioma==2 %>
-                <td><%= link_to 'Espanhol Disciplinas', disciplinasesp_url %></td>
+                <td><%= link_to 'Espanhol Disciplinas', espanhol_disciplinas_url %></td>
               <% else %>                
                 <td><%= link_to 'Disciplinas', disciplinas_url %></td>
           		<% end %>
@@ -68,9 +68,9 @@
           <% end %>
       		<% if @conta==2 %>
               <% if linha.idioma==1 %>
-                <td><%= link_to 'Subjects', disciplinas2sing_url %></td>
+                <td><%= link_to 'Subjects', ingles_disciplinas2s_url %></td>
               <% else if linha.idioma==2 %>
-                <td><%= link_to 'Espanhol Disciplinas', disciplinas2sesp_url %></td>
+                <td><%= link_to 'Espanhol Disciplinas', espanhol_disciplinas2s_url %></td>
               <% else %>
               <td><%= link_to 'Disciplinas', disciplinas2s_url %></td>
                 <% end %>
@@ -78,9 +78,9 @@
       		<% end %>
       		<% if @conta==3 %>
               <% if linha.idioma==1 %>
-                <td><%= link_to 'Subjects', disciplinas3sing_url %></td>
+                <td><%= link_to 'Subjects', ingles_disciplinas3s_url %></td>
                 <% else if linha.idioma==2 %>
-                <td><%= link_to 'Espanhol - Disciplinas', disciplinas3sesp_url %></td>
+                <td><%= link_to 'Espanhol - Disciplinas', espanhol_disciplinas3s_url %></td>
               <% else %>
               <td><%= link_to 'Disciplinas', disciplinas3s_url %></td>
               <% end %>

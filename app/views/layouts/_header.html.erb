@@ -1,5 +1,4 @@
-<% @aux=get_idioma() %>
-<% @idioma=@aux.idioma %>
+<% @idioma=get_idioma().idioma %>
   <nav class="navbar navbar-default fundobranco">
   <div class="container-fluid fundobranco">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -16,23 +15,23 @@
       <ul class="nav navbar-nav navbar-left">
 
 		  <% if @idioma==1 %>
-		    <li><%= link_to "Home", homeing_path%></li>
+		    <li><%= link_to "Home", ingles_home_path%></li>
          <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Institution<span class="caret"></span></a>
           <ul class="dropdown-menu">
-      			<li><%= link_to "Publications", publicasing_path%></li>
-            <li><%= link_to "Events ", eventosing_path%></li>
+      			<li><%= link_to "Publications", ingles_publicas_path%></li>
+            <li><%= link_to "Events ", ingles_eventos_path%></li>
             <li><%= link_to "Contact", ingles_contato_path%></li>
-            <li><%= link_to "Selection Process", seletivosing_path%></li>
+            <li><%= link_to "Selection Process", ingles_seletivos_path%></li>
 			<% else if @idioma==2 %>
-			 <li><%= link_to "Inicio", homeesp_path%></li>
+			 <li><%= link_to "Inicio", espanhol_home_path%></li>
          <li class="dropdown">
 		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Espanhol Sobre nós<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href ="publicasesp">Espanhol Publicaciones</a></li>
-            <li><a href ="eventosesp">Espanhol Eventos</a></li>
+            <li><a href ="espanhol_publicas">Espanhol Publicaciones</a></li>
+            <li><a href ="espanhol_eventos">Espanhol Eventos</a></li>
 			      <li><a href ="espanhol_contato">Espanhol Contato</a></li>
-			      <li><a href ="seletivosesp">Espanhol Processo seletivo</a></li>
+			      <li><a href ="espanhol_seletivos">Espanhol Processo seletivo</a></li>
 			<% else %>
 			 <li><%= link_to "Home", portugues_home_path%></li>
          <li class="dropdown">
@@ -51,18 +50,18 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Presentation<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to "About Us",ingles_quem_path%></li>
-            <li><%= link_to "Teacher Area ", docentesing_path%></li>
+            <li><%= link_to "Teacher Area ", ingles_docentes_path%></li>
             <li><%= link_to "Statute", ingles_regimento_path%></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to "Finances", financasing_path%></li>
+            <li><%= link_to "Finances", ingles_financas_path%></li>
 		  <% else if @idioma==2 %>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Espanhol Apresentação<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Espanhol Quem Somos",espanhol_quem_path%></li>
-            <li><a href="docentesesp">Espanhol Corpo Docente</a></li>
+            <li><a href="espanhol_docentes">Espanhol Corpo Docente</a></li>
             <li><%= link_to "Espanhol Regimentos", espanhol_regimento_path%></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to "Espanhol Finanças", financasesp_path%></li>
+            <li><%= link_to "Espanhol Finanças", espanhol_financas_path%></li>
 		  <% else %>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Apresentação<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -80,17 +79,17 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Academics<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Calendar",ingles_calendario_path %></li>
-            <li><%= link_to "Research Groups", gruposing_path %></li>
-            <li><%= link_to "Line Of Researchs", linhasing_path %></li>
-            <li><%= link_to "Final Results", finaising_path %></li>
+            <li><%= link_to "Research Groups", ingles_grupos_path %></li>
+            <li><%= link_to "Line Of Researchs", ingles_linhas_path %></li>
+            <li><%= link_to "Final Results", ingles_finais_path %></li>
             <li><%= link_to "Egress", ingles_egre_path %></li>
 		  <% else if @idioma==2 %>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Espanhol Acadêmicos<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Espanhol Calendário e Matricula",espanhol_calendario_path %></li>
-            <li><%= link_to "Espanhol Grupos de Pesquisas", gruposesp_path %></li>
-            <li><%= link_to "Espanhol Linhas de Pesquisas", linhasesp_path %></li>
-            <li><%= link_to "Espanhol Trabalhos Finais", finaisesp_path %></li>
+            <li><%= link_to "Espanhol Grupos de Pesquisas", espanhol_grupos_path %></li>
+            <li><%= link_to "Espanhol Linhas de Pesquisas", espanhol_linhas_path %></li>
+            <li><%= link_to "Espanhol Trabalhos Finais", espanhol_finais_path %></li>
             <li><%= link_to "Espanhol Egressos", espanhol_egre_path %></li>
 		  <% else %>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acadêmicos<span class="caret"></span></a>
@@ -140,13 +139,13 @@
    		  <% if @idioma==1 %>
          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Partnership<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Inglês Colaboradores", colaboradoresing_path %><li>
-            <li><%= link_to "Inglês Instituições", linksing_path %></li>
+            <li><%= link_to "Inglês Colaboradores", ingles_colaboradores_path %><li>
+            <li><%= link_to "Inglês Instituições", ingles_links_path %></li>
    		  <% else if @idioma==2 %>
          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Espanhol Parceiros<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Espanhol Colaboradores", colaboradoresesp_path %><li>
-            <li><%= link_to "Espanhol Instituições", linksesp_path %></li>
+            <li><%= link_to "Espanhol Colaboradores", espanhol_colaboradores_path %><li>
+            <li><%= link_to "Espanhol Instituições", espanhol_links_path %></li>
    		  <% else %>
          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Parceiros<span class="caret"></span></a>
           <ul class="dropdown-menu">
