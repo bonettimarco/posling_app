@@ -23,11 +23,13 @@ module SessionsHelper
 	
 	# funções que chamam páginas estáticas em portugues
 	
+
 	def portugues_home
 		troca(3)
 		portugues()
-		redirect_to home_path
+		redirect_to homepor_path
 	end
+
 
 	def portugues_calendario
 		troca(3)
@@ -89,328 +91,6 @@ module SessionsHelper
 		redirect_to egress_path
 	end
 	
-	# funções que chamam páginas estáticas em inglês
-	
-	def ingles_home
-		troca(1)
-		ingles()
-		redirect_to homeing_path
-	end
-
-	def ingles_calendario
-		troca(1)
-		ingles()
-		redirect_to calendarioematriculaing_path
-	end
-	
-	def ingles_manual
-		troca(1)
-		ingles()
-		redirect_to manualdoalunoing_path
-	end
-	
-	def ingles_quem
-		troca(1)
-		ingles()
-		redirect_to quemsomosing_path
-	end
-	
-	def ingles_regimento
-		troca(1)
-		ingles()
-		redirect_to regimentosing_path
-	end
-	
-	def ingles_editais
-		troca(1)
-		ingles()
-		redirect_to editaising_path
-	end
-	
-	def ingles_curriculo
-		troca(1)
-		ingles()
-		redirect_to estruturacurricularing_path
-	end
-	
-	def ingles_legislacao
-		troca(1)
-		ingles()
-		redirect_to legislacaoing_path
-	end
-	
-	def ingles_formulario
-		troca(1)
-		ingles()
-		redirect_to formulariosing_path
-	end
-	
-	def ingles_quadro
-		troca(1)
-		ingles()
-		redirect_to quadrodehorariosing_path
-	end
-	
-	def ingles_egre
-		troca(1)
-		ingles()
-		redirect_to egressing_path
-	end
-	
-	
-	# funções que chamam páginas estáticas em espanhol
-	
-	def espanhol_home
-		troca(2)
-		espanhol()
-		redirect_to homeesp_path
-	end
-
-	def espanhol_calendario
-		troca(2)
-		espanhol()
-		redirect_to calendarioematriculaesp_path
-	end
-	
-	def espanhol_manual
-		troca(2)
-		espanhol()
-		redirect_to manualdoalunoesp_path
-	end
-	
-	def espanhol_quem
-		troca(2)
-		espanhol()
-		redirect_to quemsomosesp_path
-	end
-	
-	def espanhol_regimento
-		troca(2)
-		espanhol()
-		redirect_to regimentosesp_path
-	end
-	
-	def espanhol_editais
-		troca(2)
-		espanhol()
-		redirect_to editaisesp_path
-	end
-	
-	def espanhol_curriculo
-		troca(2)
-		espanhol()
-		redirect_to estruturacurricularesp_path
-	end
-	
-	def espanhol_legislacao
-		troca(2)
-		espanhol()
-		redirect_to legislacaoesp_path
-	end
-	
-	def espanhol_formulario
-		troca(2)
-		espanhol()
-		redirect_to formulariosesp_path
-	end
-	
-	def espanhol_quadro
-		troca(2)
-		espanhol()
-		redirect_to quadrodehorariosesp_path
-	end
-	
-	def espanhol_egre
-		troca(2)
-		espanhol()
-		redirect_to egressesp_path
-	end
-	
-#outras funções
-
-
-	def portugues_home
-		troca(3)
-		portugues()
-		redirect_to homepor_path
-	end
-
-	def salve()
-		@aux.save
-		redirect_to egressos_url
-	end
-	
-	def ingles_colaboradores()
-		troca(1)
-		ingles()
-		redirect_to colaboradores_url
-	end
-	
-	def ingles_contato()
-		troca(1)
-		ingles()
-		redirect_to contatos_url
-	end
-
-	def ingles_finais()
-		troca(1)
-		ingles()
-		redirect_to finais_url
-	end
-	
-	def ingles_grupos()
-		troca(1)
-		ingles()
-		redirect_to grupos_url
-	end
-	
-	def ingles_linhas()
-		troca(1)
-		ingles()
-		redirect_to linhas_url
-	end
-	
-	def ingles_financas()
-		troca(1)
-		ingles()
-		redirect_to financas_url
-	end
-	
-	def ingles_links()
-		troca(1)
-		ingles()
-		redirect_to links_url
-	end
-	
-	def ingles_publicas()
-		troca(1)
-			ingles()
-			redirect_to publicas_url
-	end
-	
-	def ingles_eventos()
-		troca(1)
-			ingles()
-			redirect_to eventos_url
-	end
-
-	
-	def ingles_seletivos()
-		troca(1)
-		ingles()
-		redirect_to processo_seletivos_url
-	end
-	
-	def ingles_docentes()
-		troca(1)
-		ingles()
-		redirect_to docentes_url
-	end
-	
-		
-	def ingles_disciplinas()
-		troca(1)
-		ingles()
-		redirect_to disciplinas_url
-	end
-
-	def ingles_disciplinas2s()
-		troca(1)
-		ingles()
-		redirect_to disciplinas2s_url
-	end
-	
-	def ingles_disciplinas3s()
-		troca(1)
-		ingles()
-		redirect_to disciplinas3s_url
-	end
-	
-	def espanhol_contato()
-		troca(2)
-		espanhol()
-		redirect_to contatos_url
-	end
-
-	def espanhol_disciplinas3s()
-		troca(2)
-		espanhol()
-		redirect_to disciplinas3s_url
-	end
-	
-	def espanhol_disciplinas2s()
-		troca(2)
-		espanhol()
-		redirect_to disciplinas2s_url
-	end
-	
-	def espanhol_disciplinas()
-		troca(2)
-		espanhol()
-		redirect_to disciplinas_url
-	end
-	
-	
-	def espanhol_docentes()
-		troca(2)
-		espanhol()
-		redirect_to docentes_url
-	end
-	
-	
-	def espanhol_seletivos()
-		troca(2)
-		espanhol()
-		redirect_to processo_seletivos_url
-	end
-
-	
-	def espanhol_eventos()
-		troca(2)
-		espanhol()
-		redirect_to eventos_url
-	end
-	
-	def espanhol_publicas()
-		troca(2)
-		espanhol()
-		redirect_to publicas_url
-	end
-	def espanhol_links()
-		troca(2)
-		espanhol()
-		redirect_to links_url
-	end
-
-	def espanhol_colaboradores()
-		troca(2)
-		espanhol()
-		redirect_to colaboradores_url
-	end
-	
-	def espanhol_finais()
-		troca(2)
-		espanhol()
-		redirect_to finais_url
-	end
-	
-	def espanhol_grupos()
-		troca(2)
-		espanhol()
-		redirect_to grupos_url
-	end
-	
-	def espanhol_linhas()
-		troca(2)
-		espanhol()
-		redirect_to linhas_url
-	end
-	
-	def espanhol_financas()
-		troca(2)
-		espanhol()
-		redirect_to financas_url
-	end
 # Portugues funçoes de chamada das dinâmicas
 
 	def portugues_colaboradores()
@@ -500,15 +180,329 @@ module SessionsHelper
 	end
 	
 
+	# funções que chamam páginas estáticas em inglês
+	
+	def ingles_home
+		troca(1)
+		ingles()
+		redirect_to homeing_path
+	end
 
-#Demais funções
+	def ingles_calendario
+		troca(1)
+		ingles()
+		redirect_to calendarioematriculaing_path
+	end
+	
+	def ingles_manual
+		troca(1)
+		ingles()
+		redirect_to manualdoalunoing_path
+	end
+	
+	def ingles_quem
+		troca(1)
+		ingles()
+		redirect_to quemsomosing_path
+	end
+	
+	def ingles_regimento
+		troca(1)
+		ingles()
+		redirect_to regimentosing_path
+	end
+	
+	def ingles_editais
+		troca(1)
+		ingles()
+		redirect_to editaising_path
+	end
+	
+	def ingles_curriculo
+		troca(1)
+		ingles()
+		redirect_to estruturacurricularing_path
+	end
+	
+	def ingles_legislacao
+		troca(1)
+		ingles()
+		redirect_to legislacaoing_path
+	end
+	
+	def ingles_formulario
+		troca(1)
+		ingles()
+		redirect_to formulariosing_path
+	end
+	
+	def ingles_quadro
+		troca(1)
+		ingles()
+		redirect_to quadrodehorariosing_path
+	end
+	
+	def ingles_egre
+		troca(1)
+		ingles()
+		redirect_to egressing_path
+	end
+	
+	# funções que chamam páginas dinâmicas em inglês
+	
+	def ingles_contato()
+		troca(1)
+		ingles()
+		redirect_to contatos_url
+	end
+
+	def ingles_finais()
+		troca(1)
+		ingles()
+		redirect_to finais_url
+	end
+	
+	def ingles_grupos()
+		troca(1)
+		ingles()
+		redirect_to grupos_url
+	end
+	
+	def ingles_linhas()
+		troca(1)
+		ingles()
+		redirect_to linhas_url
+	end
+	
+	def ingles_financas()
+		troca(1)
+		ingles()
+		redirect_to financas_url
+	end
+	
+	def ingles_links()
+		troca(1)
+		ingles()
+		redirect_to links_url
+	end
+	
+	def ingles_publicas()
+		troca(1)
+			ingles()
+			redirect_to publicas_url
+	end
+	
+	def ingles_eventos()
+		troca(1)
+			ingles()
+			redirect_to eventos_url
+	end
+
+	
+	def ingles_seletivos()
+		troca(1)
+		ingles()
+		redirect_to processo_seletivos_url
+	end
+	
+	def ingles_docentes()
+		troca(1)
+		ingles()
+		redirect_to docentes_url
+	end
+	
+		
+	def ingles_disciplinas()
+		troca(1)
+		ingles()
+		redirect_to disciplinas_url
+	end
+
+	def ingles_disciplinas2s()
+		troca(1)
+		ingles()
+		redirect_to disciplinas2s_url
+	end
+	
+	def ingles_disciplinas3s()
+		troca(1)
+		ingles()
+		redirect_to disciplinas3s_url
+	end
+	
+	def ingles_colaboradores()
+		troca(1)
+		ingles()
+		redirect_to colaboradores_url
+	end
+	
+	
+	# funções que chamam páginas estáticas em espanhol
+	
+	def espanhol_home
+		troca(2)
+		espanhol()
+		redirect_to homeesp_path
+	end
+
+	def espanhol_calendario
+		troca(2)
+		espanhol()
+		redirect_to calendarioematriculaesp_path
+	end
+	
+	def espanhol_manual
+		troca(2)
+		espanhol()
+		redirect_to manualdoalunoesp_path
+	end
+	
+	def espanhol_quem
+		troca(2)
+		espanhol()
+		redirect_to quemsomosesp_path
+	end
+	
+	def espanhol_regimento
+		troca(2)
+		espanhol()
+		redirect_to regimentosesp_path
+	end
+	
+	def espanhol_editais
+		troca(2)
+		espanhol()
+		redirect_to editaisesp_path
+	end
+	
+	def espanhol_curriculo
+		troca(2)
+		espanhol()
+		redirect_to estruturacurricularesp_path
+	end
+	
+	def espanhol_legislacao
+		troca(2)
+		espanhol()
+		redirect_to legislacaoesp_path
+	end
+	
+	def espanhol_formulario
+		troca(2)
+		espanhol()
+		redirect_to formulariosesp_path
+	end
+	
+	def espanhol_quadro
+		troca(2)
+		espanhol()
+		redirect_to quadrodehorariosesp_path
+	end
+	
+	def espanhol_egre
+		troca(2)
+		espanhol()
+		redirect_to egressesp_path
+	end
+	
+#funções que chamam páginas dinâmicas em espanhol
+
+	
+	def espanhol_contato()
+		troca(2)
+		espanhol()
+		redirect_to contatos_url
+	end
+
+	def espanhol_disciplinas3s()
+		troca(2)
+		espanhol()
+		redirect_to disciplinas3s_url
+	end
+	
+	def espanhol_disciplinas2s()
+		troca(2)
+		espanhol()
+		redirect_to disciplinas2s_url
+	end
+	
+	def espanhol_disciplinas()
+		troca(2)
+		espanhol()
+		redirect_to disciplinas_url
+	end
+	
+	
+	def espanhol_docentes()
+		troca(2)
+		espanhol()
+		redirect_to docentes_url
+	end
+	
+	
+	def espanhol_seletivos()
+		troca(2)
+		espanhol()
+		redirect_to processo_seletivos_url
+	end
+
+	
+	def espanhol_eventos()
+		troca(2)
+		espanhol()
+		redirect_to eventos_url
+	end
+	
+	def espanhol_publicas()
+		troca(2)
+		espanhol()
+		redirect_to publicas_url
+	end
+	def espanhol_links()
+		troca(2)
+		espanhol()
+		redirect_to links_url
+	end
+
+	def espanhol_colaboradores()
+		troca(2)
+		espanhol()
+		redirect_to colaboradores_url
+	end
+	
+	def espanhol_finais()
+		troca(2)
+		espanhol()
+		redirect_to finais_url
+	end
+	
+	def espanhol_grupos()
+		troca(2)
+		espanhol()
+		redirect_to grupos_url
+	end
+	
+	def espanhol_linhas()
+		troca(2)
+		espanhol()
+		redirect_to linhas_url
+	end
+	
+	def espanhol_financas()
+		troca(2)
+		espanhol()
+		redirect_to financas_url
+	end
+
+#Funções ligadas ao gerenciamento de sessions
+
 
 def get_idioma()
   	@visitante = Visitante.find_by(id: session[:visitante_id])
   	return @visitante
 end
 
-def troca(arg)
+	def troca(arg)
 		if !logged_in?
 			session.delete(10)
 			session.delete(20)
@@ -535,8 +529,13 @@ def troca(arg)
     @current_user = nil
   end
   
+  # funções que setam e chamam os alunos egressos por ano e modalidade
   
-  
+
+	def salve()
+		@aux.save
+		redirect_to egressos_url
+	end
 
 	def dout2030
 		@aux=Dado.find(1)
