@@ -1,4 +1,5 @@
-<% @idioma=Idioma.find(1) %>
+<% @aux=get_idioma() %>
+<% @idioma=@aux.idioma %>
 <p id="notice"><%= notice %></p>
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
@@ -8,10 +9,10 @@
 <% if logged_in? %>
 <thead>
           <tr>
-     <% if @idioma.aux==1 %>
+     <% if @idioma==1 %>
              <th>Link</th>
             <th>Text</th>
-         <% else if @idioma.aux==2 %>
+         <% else if @idioma==2 %>
              <th>Espanhol - Link</th>
             <th>Espanhol - Texto</th>
          <% else %>
