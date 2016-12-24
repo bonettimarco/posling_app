@@ -496,6 +496,10 @@ module SessionsHelper
 
 #Funções ligadas ao gerenciamento de sessions
 
+  def mensagem()
+  		flash[:notice]= "Você precisa logar antes de realizar esta operação"
+  end
+
 
 def get_idioma()
   	@visitante = Visitante.find_by(id: session[:visitante_id])
@@ -511,6 +515,17 @@ end
 		end
 	end
 
+	def direciona()
+		if get_idioma().idioma==1
+			redirect_to homeing_path
+		elsif get_idioma.idioma==2
+			redirect_to homeesp_path
+		else
+			redirect_to homepor_path
+		end
+	end
+	
+	
   def log_in(user)
     session[:user_id] = user.id
   end

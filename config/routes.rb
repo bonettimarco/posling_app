@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   
 #Links das funções de troca de língua
 root 'paginas_estaticas#portugues_home'
+get 'home' => 'paginas_estaticas#direciona'
 get 'homepor' => 'paginas_estaticas#home'
 get 'homeesp' => 'espanhol#home'
 get 'homeing' => 'ingles#home'

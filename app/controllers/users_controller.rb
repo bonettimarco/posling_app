@@ -5,14 +5,20 @@ class UsersController < ApplicationController
 
   def new
     if !logged_in?
-      redirect_to portugues_home_url
+      mensagem()
+      redirect_to home_url
     else
     @user = User.new
     end
   end
   
   def edit
+    if !logged_in?
+      mensagem()
+      redirect_to home_url
+    else
     @user = User.find(params[:id])
+    end
   end
   
 
