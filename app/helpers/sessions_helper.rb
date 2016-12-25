@@ -507,12 +507,10 @@ def get_idioma()
 end
 
 	def troca(arg)
-		if !logged_in?
 			session.delete(10)
 			session.delete(20)
 			session.delete(30)
 			session[:visitante_id] = arg*10
-		end
 	end
 
 	def direciona()

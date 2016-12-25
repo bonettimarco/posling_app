@@ -1,27 +1,48 @@
-<% @aux=get_idioma() %>
-<% @idioma=@aux.idioma %>
+<% @aux = Idioma.find(1) %>
+<% @idioma = @aux.aux %>
 <p id="notice"><%= notice %></p>
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
            <% if @idioma==1 %>
   <h1>Selection Process</h1>
-         <% else if @idioma==2 %>
-          <h1>Espanhol - Processos Seletivos</h1>
-         <% else %>
-<h1>Processos Seletivos</h1>
-      <% end %>
       
       <table class="table table-responsive table-bordered table-hover">
-          <% if logged_in? %>
         <thead>
           <tr>
-            <th>Cabecalho</th>
-            <th>Mestrado</th>
-            <th>Doutorado</th>
- 
+          <% if logged_in? %>
+            <th>Title</th>
+            <th>Masters</th>
+            <th>Doctoral</th>
+            <th colspan="3"></th>
+          <% end %>
+         <% else if @idioma==2 %>
+          <h1>Espanhol - Processos Seletivos</h1>
+      
+      <table class="table table-responsive table-bordered table-hover">
+        <thead>
+          <tr>
+            <% if logged_in? %>
+              <th>Espanhol - Cabecalho</th>
+              <th>Espanhol - Mestrado</th>
+              <th>Espanhol - Doutorado</th>
               <th colspan="3"></th>
+            <% end %>
+         <% else %>
+<h1>Processos Seletivos</h1>
+      
+      <table class="table table-responsive table-bordered table-hover">
+        <thead>
+          <tr>
+            <% if logged_in? %>
+              <th>Cabecalho</th>
+              <th>Mestrado</th>
+              <th>Doutorado</th>
+              <th colspan="3"></th>
+            <% end %>
+      <% end %>
+
+
         </thead>
-              <% end %>
       
 <% end %>
      

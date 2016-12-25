@@ -3,7 +3,14 @@
 <p id="notice"><%= notice %></p>
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
-      <h1>Links</h1>
+<% if @idioma==1%> 
+	<h1>Institutions</h1> 
+<% else if @idioma==2%>
+	<h1>Instituciones</h1>
+<% else %>
+	 <h1>Instituições</h1>
+<% end %>
+<% end %>
       
       <table class="table table-responsive table-bordered table-hover">
 <% if logged_in? %>
@@ -11,13 +18,10 @@
           <tr>
      <% if @idioma==1 %>
              <th>Link</th>
-            <th>Text</th>
          <% else if @idioma==2 %>
              <th>Espanhol - Link</th>
-            <th>Espanhol - Texto</th>
          <% else %>
              <th>Link</th>
-            <th>Texto</th>
         <% end %>
     <% end %>   
           <% if logged_in? %>
@@ -27,18 +31,16 @@
         </thead>
 <% end %>      
         <tbody>
-          <% @links.each do |link| %>
+            <% @links.each do |link| %>
+                <td><a href=<%= link.texto%>><%= link.link %></a></td>
 <% if logged_in? %>
 <tr>
-              <td><%= link.link %></td>
-              <td><%= link.texto %></td>
                 <td><%= link_to 'Show', link %></td>
                 <td><%= link_to 'Edit', edit_link_path(link) %></td>
                 <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
 
 <% else %>
-<tr><a href=<%= link.texto %>><%= link.link %></a></tr>
 <% end %>
 <% end %>
         </tbody>

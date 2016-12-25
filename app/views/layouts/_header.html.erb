@@ -109,10 +109,10 @@
           <ul class="dropdown-menu">
             <li><%= link_to "Edicts", ingles_editais_path %><li>
             <li><%= link_to "Curriculum", ingles_curriculo_path%></li>
-            <li><%= link_to "Inglês Quadro de horarios",ingles_quadro_path%></li>
-            <li><%= link_to "Inglês Legislação", ingles_legislacao_path%></li>
-            <li><a href = 'ingles_regimento'>Inglês Regimentos</a></li>
-            <li><%= link_to "Inglês Formulários", ingles_formulario_path%></li>
+            <li><%= link_to "Timetable",ingles_quadro_path%></li>
+            <li><%= link_to "Legislation", ingles_legislacao_path%></li>
+            <li><%= link_to "Bylaws", regimentosing_path%></li>
+            <li><%= link_to "Forms", ingles_formulario_path%></li>
    		  <% else if @idioma==2 %>
 		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Espanhol Organização<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -139,8 +139,8 @@
    		  <% if @idioma==1 %>
          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Partnership<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Inglês Colaboradores", ingles_colaboradores_path %><li>
-            <li><%= link_to "Inglês Instituições", ingles_links_path %></li>
+            <li><%= link_to "Collaborators", ingles_colaboradores_path %><li>
+            <li><%= link_to "Institutions", ingles_links_path %></li>
    		  <% else if @idioma==2 %>
          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Espanhol Parceiros<span class="caret"></span></a>
           <ul class="dropdown-menu">
