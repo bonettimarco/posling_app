@@ -6,7 +6,7 @@
       <% if @idioma==1 %>
         <h1>Final Results</h1>
         <% else if @idioma==2 %>
-        <h1>Espanhol - Trabalhos finais</h1>
+        <h1>Trabajos Finales</h1>
               <% else %>
                 <h1>Trabalhos Finais</h1>
         <% end %>
@@ -19,7 +19,7 @@
       <% if @idioma==1 %>
                   <th>Text</th>
       <% else if @idioma==2 %>
-                  <th> Espanhol - Texto </th>   
+                  <th>Texto</th>   
       <% else %>
                   <th>Texto</th>
       <% end %>
@@ -37,9 +37,9 @@
               <tr>
                 <td><%= finai.texto %></td><br>
             <% if finai.idioma==1 %>
-            <td>Ingles - Para consultas, clique <a href = 'http://www.bdtd.ndc.uff.br'>here.</a></td>
+            <td>For inquiries, click  <a href = 'http://www.bdtd.ndc.uff.br'>here.</a></td>
             <% else if finai.idioma == 2 %>
-            <td>Espanhol - Para consultas, clique <a href = 'http://www.bdtd.ndc.uff.br'>aqui em espanhol</a></td>
+            <td>Para cualquier consulta, por favor haga clic  <a href = 'http://www.bdtd.ndc.uff.br'>aquí</a></td>
         		<% else %>
         		<td>Para consultas, clique <a href = 'http://www.bdtd.ndc.uff.br'>aqui.</a>
             <% end %>
@@ -51,9 +51,9 @@
               <tr>
                 <td><%= finai.texto %></td><br>
             <% if finai.idioma==1 %>
-            <td>Ingles - Para consultas, clique <a href = 'http://www.bdtd.ndc.uff.br'>here.</a></td>
+            <td>For inquiries, click  <a href = 'http://www.bdtd.ndc.uff.br'>here.</a></td>
             <% else if finai.idioma == 2 %>
-            <td>Espanhol - Para consultas, clique <a href = 'http://www.bdtd.ndc.uff.br'>aqui em espanhol</a></td>
+            <td>Para cualquier consulta, por favor haga clic <a href = 'http://www.bdtd.ndc.uff.br'>aquí</a></td>
         		<% else %>
         		<td>Para consultas, clique <a href = 'http://www.bdtd.ndc.uff.br'>aqui.</a>
         <% end %>

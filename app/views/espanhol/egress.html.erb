@@ -1,22 +1,15 @@
 <% @egressos=Egresso.all %>
-<% @idioma=Idioma.find(1) %>
+
 <div class="container-fluid cont-estatico">
     <div class="container-fluid ">
-        <% if @idioma.aux==1 %>
-            <h1>Inglês - Egressos</h1>
-            <% else if @idioma.aux==2 %>
-            <h1>Espanhol - Egressos</h1>
-            <% else %>
-            <h1>Egressos</h1>
-            <% end %>
-        <% end %>
+        <h1>Graduados</h1>
     </div>
     <div class="container-fluid">
         <div class="col-md-6 col-md-offset-3">
             <table>
                 <thead>
                     <tr>
-                        <th>Mestrado/Ano</th>
+                        <th>Masters/Año</th>
                     </tr>
                  </thead>
                  <tbody>
@@ -38,7 +31,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Doutorado/Ano</th>
+                        <th>Doctorado/Año</th>
                     </tr>
                  </thead>
                  <tbody>
